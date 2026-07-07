@@ -1,4 +1,4 @@
-# inputs we need from the user 
+300# inputs we need from the user 
 #  Total rent 
 #  Toal food ordered for snacking
 # Electricity units spend
