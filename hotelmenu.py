@@ -10,7 +10,7 @@ menu = {
 
 # Greet the user and display the menu 
 print("Welcome to our restaurant!")
-print("Pizza': Rs70\nBurger': Rs35\nPasta': Rs50\nSalad': Rs70\nSushi': Rs50\nCoffee': Rs40")
+print("Pizza: Rs70\nBurger: Rs35\nPasta: Rs50\nSalad: Rs70\nSushi: Rs50\nCoffee: Rs40")
 
 order_total = 0
 # 70 + 35 = 105
