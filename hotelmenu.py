@@ -23,9 +23,11 @@ if item_1 in menu:
 else:
     print(f"Ordered item {item_1} is not available yet")
     
-another_order = input("do you want to add another item? (yes/No)")   
+another_order = input("Do you want to add another item (yes/No):").lower()
+print(repr(another_order))
 if another_order == "Yes":
-    item_2 = input("Enter the name of second item =")
+    item_2 = input("Enter the name of second item: =")
+    
     if item_2 in menu:
         order_total += menu[item_2]
         print(f"Your item {item_2} has been added to your order")
@@ -34,3 +36,17 @@ if another_order == "Yes":
  
  
 print(f"Your total order amount of items to pay is: Rs{order_total}")       
+
+
+
+
+
+
+
+
+
+
+
+
+
+

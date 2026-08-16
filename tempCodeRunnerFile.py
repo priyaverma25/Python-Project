@@ -1,18 +1,23 @@
-# inputs we need from the user 
-#  Total rent 
-#  Toal food ordered for snacking
-# Electricity units spend
-# Charge per unit of electricity
-# Number of people living in the hostel/flat
-#  Output 
-# Total amount you've to pay is 
+import tkinter as tk
+from time import strftime
 
-rent = int(input("Enter your hostel/flat rent = "))
-food = int(input("Enter the amount of food ordered = "))
-electricity_spend = int(input("Enter the total of electricity spend = "))
-charge_per_unit = int(input("Enter the charge per unit = "))
-persons = int(input("Enter the number of people living in the hostel/flat = "))
+root = tk.Tk()
+root.title("Digital Clock")
 
-total_electricity = electricity_spend * charge_per_unit
-output = (food + rent + total_electricity) // persons
-print("Each person has to pay:", output)
+def time():
+    string = str('%H:%M:%S %p\n%d/%m/%Y')
+    label.config(text=string)
+    label.after(1000,time)
+ 
+label = tk.Label(
+    root, 
+    font=('calibri', 50, 'bold'),
+    background='yellow',
+    foreground='black')    
+
+label.pack(anchor='center')
+
+time()
+
+root.mainloop()
+
