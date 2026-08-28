@@ -59,33 +59,33 @@
 
 
 # Palindrome Number
-class Solution:
-    def isPalindrome(self, x: int) -> bool:
-        if x < 0:
-            return False
-
-        original = x
-        reverse = 0
-
-        while x > 0: 
-            digit = x % 10 
-            reverse = reverse * 10 + digit
-            x = x // 10
-
-        return original == reverse  
-
-
-# # Kids with the Greatest Number of Conkies
 # class Solution:
-#     def kidsWithCandies(self, candies: list[int], extraCandies: int) -> list[bool]:
-#         max_candies = max(candies)
-#         result = []
-#         for candy in candies:
-#             if (candy+extraCandies) >= max_candies:
-#                 result.append(True)
-#             else:
-#                 result.append(False)
-#         return result
+#     def isPalindrome(self, x: int) -> bool:
+#         if x < 0:
+        #     return False
+
+        # original = x
+        # reverse = 0
+
+        # while x > 0: 
+        #     digit = x % 10 
+        #     reverse = reverse * 10 + digit
+        #     x = x // 10
+
+        # return original == reverse  
+
+
+# Kids with the Greatest Number of Conkies
+class Solution:
+    def kidsWithCandies(self, candies: list[int], extraCandies: int) -> list[bool]:
+        max_candies = max(candies)
+        result = []
+        for candy in candies:
+            if (candy+extraCandies) >= max_candies:
+                result.append(True)
+            else:
+                result.append(False)
+        return result
 
 # Recursion
 # Power of Two
