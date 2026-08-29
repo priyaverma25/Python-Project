@@ -76,34 +76,34 @@
 
 
 # Kids with the Greatest Number of Conkies
-class Solution:
-    def kidsWithCandies(self, candies: list[int], extraCandies: int) -> list[bool]:
-        max_candies = max(candies)
-        result = []
-        for candy in candies:
-            if (candy+extraCandies) >= max_candies:
-                result.append(True)
-            else:
-                result.append(False)
-        return result
+# class Solution:
+#     def kidsWithCandies(self, candies: list[int], extraCandies: int) -> list[bool]:
+#         max_candies = max(candies)
+#         result = []
+#         for candy in candies:
+#             if (candy+extraCandies) >= max_candies:
+#                 result.append(True)
+#             else:
+#                 result.append(False)
+#         return result
 
 # Recursion
 # Power of Two
-# class Solution:
-#     def isPowerOfTwo(self, n: int) -> bool:
-#         # while n%2==0:
-#         #     n//2
-#         # return n==1
+class Solution:
+    def isPowerOfTwo(self, n: int) -> bool:
+        # while n%2==0:
+        #     n//2
+        # return n==1
         
-# # base case of recursive 
-#         if n<=0:
-#             return False
-#         if n==1:
-#             return True
-#         if n%2!=0:
-#             return False
-#         # recursive case 
-#         return self.isPowerOfTwo(n//2)
+# base case of recursive 
+        if n<=0:
+            return False
+        if n==1:
+            return True
+        if n%2!=0:
+            return False
+        # recursive case 
+        return self.isPowerOfTwo(n//2)
     
     
 # # Power of Three
@@ -117,7 +117,17 @@ class Solution:
 #             return False
 #         return self.isPowerofThree(n//3)
     
-    
+# Power of four
+# class Solution:
+#      def isPowerofFour(self, n: int) -> bool:
+#        if n<=0:
+#           return False
+#        if n==1:
+#          return True
+#        if n%4!=0:
+#          return False
+#        return self.isPowerofFour(n//4)
+
     
     
     
