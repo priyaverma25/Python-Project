@@ -89,24 +89,24 @@
 
 # Recursion
 # Power of Two
-class Solution:
-    def isPowerOfTwo(self, n: int) -> bool:
-        # while n%2==0:
-        #     n//2
-        # return n==1
+# class Solution:
+#     def isPowerOfTwo(self, n: int) -> bool:
+#         # while n%2==0:
+#         #     n//2
+#         # return n==1
         
 # base case of recursive 
-        if n<=0:
-            return False
-        if n==1:
-            return True
-        if n%2!=0:
-            return False
-        # recursive case 
-        return self.isPowerOfTwo(n//2)
+        # if n<=0:
+        #     return False
+        # if n==1:
+        #     return True
+        # if n%2!=0:
+        #     return False
+        # # recursive case 
+        # return self.isPowerOfTwo(n//2)
     
     
-# # Power of Three
+# Power of Three
 # class Solution: 
 #     def isPowerofThree(self, n: int) -> bool:
 #         if n<=0:
@@ -117,7 +117,7 @@ class Solution:
 #             return False
 #         return self.isPowerofThree(n//3)
     
-# Power of four
+# # Power of four
 # class Solution:
 #      def isPowerofFour(self, n: int) -> bool:
 #        if n<=0:
@@ -128,7 +128,50 @@ class Solution:
 #          return False
 #        return self.isPowerofFour(n//4)
 
-    
-    
-    
+# pow(x,n) 
+class Solution:
+  def findPow(self, x: float, n: int) -> float:
+    #   base case
+    if n==0:
+        return 1
+    # recursive case
+    a = self.findPow(x, n//2)
+    if n%2==0:
+        return a*a
+    else:
+        return a*a*x 
+  def myPow(self, x: float, n: int) -> float:
+        if n>=0:
+            return self.findPow(x, n)
+        else:
+            return 1/self.findPow(x, n*(-1))
+  
+# # fibonacci number
+# class Solution:
+#     def fib(self, n: int) -> int:
+#         # base case
+#         if n==0:
+#             return 0
+#         if n==1:
+#             return 1
+#         # recursive case
+#         return self.fib(n-1)+self.fib(n-2) 
+
+# # N-th tribonacci number
+# class Solution:
+#     def tribonacci(self, n: int) -> int:
+#         # base case
+#         if n==0:
+#             return 0
+#         if n==1 or n==2:
+#             return 1
+#         # recursive case
+#         return self.tribonacci(n-1)+self.tribonacci(n-2)+self.tribonacci(n-3)
+  
+  
+  
+  
+  
+  
+            
     
