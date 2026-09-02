@@ -128,34 +128,34 @@
 #          return False
 #        return self.isPowerofFour(n//4)
 
-# pow(x,n) 
-class Solution:
-  def findPow(self, x: float, n: int) -> float:
-    #   base case
-    if n==0:
-        return 1
-    # recursive case
-    a = self.findPow(x, n//2)
-    if n%2==0:
-        return a*a
-    else:
-        return a*a*x 
-  def myPow(self, x: float, n: int) -> float:
-        if n>=0:
-            return self.findPow(x, n)
-        else:
-            return 1/self.findPow(x, n*(-1))
-  
-# # fibonacci number
+# # pow(x,n) 
 # class Solution:
-#     def fib(self, n: int) -> int:
-#         # base case
-#         if n==0:
-#             return 0
-#         if n==1:
-#             return 1
-#         # recursive case
-#         return self.fib(n-1)+self.fib(n-2) 
+#   def findPow(self, x: float, n: int) -> float:
+#     #   base case
+#     if n==0:
+#         return 1
+#     # recursive case
+#     a = self.findPow(x, n//2)
+#     if n%2==0:
+#         return a*a
+#     else:
+#         return a*a*x 
+#   def myPow(self, x: float, n: int) -> float:
+#         if n>=0:
+#             return self.findPow(x, n)
+#         else:
+#             return 1/self.findPow(x, n*(-1))
+  
+# fibonacci number
+class Solution:
+    def fib(self, n: int) -> int:
+        # base case
+        if n==0:
+            return 0
+        if n==1:
+            return 1
+        # recursive case
+        return self.fib(n-1)+self.fib(n-2) 
 
 # # N-th tribonacci number
 # class Solution:
