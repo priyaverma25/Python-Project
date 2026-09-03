@@ -146,27 +146,27 @@
 #         else:
 #             return 1/self.findPow(x, n*(-1))
   
-# fibonacci number
-class Solution:
-    def fib(self, n: int) -> int:
-        # base case
-        if n==0:
-            return 0
-        if n==1:
-            return 1
-        # recursive case
-        return self.fib(n-1)+self.fib(n-2) 
-
-# # N-th tribonacci number
+# # fibonacci number
 # class Solution:
-#     def tribonacci(self, n: int) -> int:
+#     def fib(self, n: int) -> int:
 #         # base case
 #         if n==0:
 #             return 0
-#         if n==1 or n==2:
+#         if n==1:
 #             return 1
 #         # recursive case
-#         return self.tribonacci(n-1)+self.tribonacci(n-2)+self.tribonacci(n-3)
+#         return self.fib(n-1)+self.fib(n-2) 
+
+# # N-th tribonacci number
+class Solution:
+    def tribonacci(self, n: int) -> int:
+        # base case
+        if n==0:
+            return 0
+        if n==1 or n==2:
+            return 1
+        # recursive case
+        return self.tribonacci(n-1)+self.tribonacci(n-2)+self.tribonacci(n-3)
   
   
   
