@@ -181,51 +181,70 @@
 #         return ans    
                    
                    
-# # Remove Duplicates from Sorted Array (day11)
-class Solution:
-    def removeDuplicates(self, nums: list[int]) -> int:
-        n = len(nums)
-        start = 0
-        for i in range(1, n):
-            # unique element found
-            if nums[i] != nums[start]:
-                start+=1
-                nums[start] = nums[i]
+# # # Remove Duplicates from Sorted Array (day11)
+# class Solution:
+#     def removeDuplicates(self, nums: list[int]) -> int:
+#         n = len(nums)
+#         start = 0
+#         for i in range(1, n):
+#             # unique element found
+#             if nums[i] != nums[start]:
+#                 start+=1
+#                 nums[start] = nums[i]
                 
-        return start+1
+#         return start+1
  
-# Remove Duplicates from Sorted Array II  
-class Solution:
-    def removeDuplicates(self, nums: list[int]) -> int:
-        n = len(nums)
-        
-        if n<=2:
-            return n
-        
-        start = 1
-        for i in range(2, n):
-            # unique element found
-            if nums[i] != nums[start-1]:
-                start+=1
-                nums[start] = nums[i]
-                         
-        return start+1
-    
-# # Sort Array By parity
-# class Solution: 
-#     def sortArrayByParity(self, nums: list[int]) -> list[int]:
+# # Remove Duplicates from Sorted Array II  
+# class Solution:
+#     def removeDuplicates(self, nums: list[int]) -> int:
 #         n = len(nums)
         
-#         stsrt = 0
-#         for i in range(n):
-#             if nums[i]%2==0:
-#                 temp = nums[i]
-#                 nums[i] = nums[start]
-#                 nums[start] = temp
+#         if n<=2:
+#             return n
+        
+#         start = 1
+#         for i in range(2, n):
+#             # unique element found
+#             if nums[i] != nums[start-1]:
 #                 start+=1
-#         return nums        
+#                 nums[start] = nums[i]
+                         
+#         return start+1
     
-# # Maximum Subarray
+# Sort Array By parity
+class Solution: 
+    def sortArrayByParity(self, nums: list[int]) -> list[int]:
+        n = len(nums)
+        
+        start = 0
+        for i in range(n):
+            if nums[i]%2==0:
+                temp = nums[i]
+                nums[i] = nums[start]
+                nums[start] = temp
+                start+=1
+        return nums 
+    
+#  Sort Array by parity II
+class Solution:
+    def sortArrayByParityII(self, nums: list[int]) -> list[int]:
+        n = len(nums)
+        result = [0]*n
+        
+        even = 0
+        odd = 1
+        
+        for num in nums:
+            if num % 2 == 0:
+                result[even] = num
+                even += 2
+            else:
+                result[odd] = num
+                odd += 2
+                    
+        return result
+
+# Maximum Subarray
 # class Solution:
 #     def maxSubArray(self, nums: list[int]) -> int:
 #         curr_sum = 0
