@@ -212,51 +212,51 @@
 #         return start+1
     
 # Sort Array By parity
-class Solution: 
-    def sortArrayByParity(self, nums: list[int]) -> list[int]:
-        n = len(nums)
+# class Solution: 
+#     def sortArrayByParity(self, nums: list[int]) -> list[int]:
+#         n = len(nums)
         
-        start = 0
-        for i in range(n):
-            if nums[i]%2==0:
-                temp = nums[i]
-                nums[i] = nums[start]
-                nums[start] = temp
-                start+=1
-        return nums 
+#         start = 0
+#         for i in range(n):
+#             if nums[i]%2==0:
+#                 temp = nums[i]
+#                 nums[i] = nums[start]
+#                 nums[start] = temp
+#                 start+=1
+#         return nums 
     
 #  Sort Array by parity II
-class Solution:
-    def sortArrayByParityII(self, nums: list[int]) -> list[int]:
-        n = len(nums)
-        result = [0]*n
-        
-        even = 0
-        odd = 1
-        
-        for num in nums:
-            if num % 2 == 0:
-                result[even] = num
-                even += 2
-            else:
-                result[odd] = num
-                odd += 2
-                    
-        return result
-
-# Maximum Subarray
 # class Solution:
-#     def maxSubArray(self, nums: list[int]) -> int:
-#         curr_sum = 0
-#         max_sum = nums[0]
+#     def sortArrayByParityII(self, nums: list[int]) -> list[int]:
+#         n = len(nums)
+#         result = [0]*n
         
-#         for i in range(len(nums)):
-#             curr_sum += nums[i]
-#             if curr_sum > max_sum:
-#                 max_sum = curr_sum
-#                 if curr_sum < 0:
-#                     curr_sum = 0
-#         return max_sum      
+#         even = 0
+#         odd = 1
+        
+#         for num in nums:
+#             if num % 2 == 0:
+#                 result[even] = num
+#                 even += 2
+#             else:
+#                 result[odd] = num
+#                 odd += 2
+                    
+#         return result
+
+# Maximum Subarray (day13)
+class Solution:
+    def maxSubArray(self, nums: list[int]) -> int:
+        curr_sum = 0
+        max_sum = nums[0]
+        
+        for i in range(len(nums)):
+            curr_sum += nums[i]
+            if curr_sum > max_sum:
+                max_sum = curr_sum
+                if curr_sum < 0:
+                    curr_sum = 0
+        return max_sum      
     
     
 # #  Best time to buy and sell stock
