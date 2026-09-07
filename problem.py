@@ -245,33 +245,33 @@
 #         return result
 
 # Maximum Subarray (day13)
-class Solution:
-    def maxSubArray(self, nums: list[int]) -> int:
-        curr_sum = 0
-        max_sum = nums[0]
-        
-        for i in range(len(nums)):
-            curr_sum += nums[i]
-            if curr_sum > max_sum:
-                max_sum = curr_sum
-                if curr_sum < 0:
-                    curr_sum = 0
-        return max_sum      
-    
-    
-# #  Best time to buy and sell stock
 # class Solution:
-#     def maxProfit(self, prices: list[int]) -> int:
-#         min_price = prices[0]
-#         profit = 0
+#     def maxSubArray(self, nums: list[int]) -> int:
+#         curr_sum = 0
+#         max_sum = nums[0]
+        
+#         for i in range(len(nums)):
+#             curr_sum += nums[i]
+#             if curr_sum > max_sum:
+#                 max_sum = curr_sum
+#                 if curr_sum < 0:
+#                     curr_sum = 0
+#         return max_sum      
+    
+    
+#  Best time to buy and sell stock
+class Solution:
+    def maxProfit(self, prices: list[int]) -> int:
+        min_price = prices[0]
+        profit = 0
        
-#         for i in range(1, len(prices)):
-#             curr_profit = prices[i] - min_price
-#             if curr_profit > profit:
-#                profit = curr_profit
-#             min_price = min(min_price, prices[i])
+        for i in range(1, len(prices)):
+            curr_profit = prices[i] - min_price
+            if curr_profit > profit:
+               profit = curr_profit
+            min_price = min(min_price, prices[i])
             
-#         return profit        
+        return profit        
     
 # #  Best time to buy and sell stock II
 # class Solution:
