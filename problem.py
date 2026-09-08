@@ -283,7 +283,26 @@ class Solution:
 #             if prices[i+1] > prices[i]:
 #                 profit += prices[i+1] - prices[i]
 #         return profit
-    
+  
+  
+# best time to buy and sell stock III(day16)
+# class Solution:
+#         def maxProfit(self, prices: list[int]) -> int:
+                
+#                 buy1  = float('-inf')
+#                 sell1 = 0
+                
+#                 buy2 = float('-inf')
+#                 sell2 = 0
+                
+#                 for price in prices:
+#                         buy1 = max(buy1, -price)
+#                         sell1 = max(sell1, buy1 + price)
+#                         buy2 = max(buy2, sell1 - price)
+#                         sell2 = max(sell2, buy2 + price)
+#                 return sell2        
+                
+
 # # Richest customer wealth
 # class Solution:
 #     def maximumWealth(self, accounts: List[List[int]]) -> int:
@@ -324,25 +343,20 @@ class Solution:
 #                 ans.append(matrix[i][colend])
 #                 c+=1
 #             colend-=1
-            
 #             if c==total:
 #                 break
-            
 #             # rowend, colend->colstart
 #             for i in range(colend, colstart-1, -1):
 #                 ans.append(matrix[rowend][i])
 #                 c+=1
 #             rowend-=1
-            
 #             if c==total:
 #                 break
-            
 #             # colstart, rowend->rowstart
 #             for i in range(rowend, rowstart-1, -1):
 #                 ans.append(matrix[i][colstart])
 #                 c+=1
 #             colstart+=1
-            
 #         return ans         
     
     
@@ -355,7 +369,6 @@ class Solution:
 #                 ans+=i
 #             else:
 #                 ans+="[.]"
-        
 #         return ans            
     
 #         # return address.replace(".", "[.]")
@@ -369,10 +382,8 @@ class Solution:
 #         return False
 #     def isPalindrome(self, s: str) -> bool:
 #         s = s.lower()
-        
 #         i = 0
 #         j = len(s)-1
-        
 #         while i<j:
 #             if not self.isAlphanumeric(s[i]):
 #                 i+=1
@@ -400,15 +411,13 @@ class Solution:
 #             s[j] = temp
 #             i+=1
 #             j-=1
-        
-#         # s.reverse()
+# # s.reverse()
         
 # # Reverse Words in a String
 # class Solution:
 #     def reverseWords(self, s: str) -> str:
 #         s = s.strip()
 #         s = s.split()
-        
 #         s.reverse()
 #         return " ".join(s)
     
@@ -417,12 +426,9 @@ class Solution:
 #     def lengthOfLastWord(self, s: str) -> int:
 #         s = s.strip()
 #         n = len(s)
-        
 #         i = n-1
 #         while i>=(-1*n) and s[i]!=" ":
 #             i-=1
-            
 #         i+=1
 #         i*=-1
-        
 #         return i  
