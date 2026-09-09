@@ -259,30 +259,30 @@
 #         return max_sum      
     
     
-#  Best time to buy and sell stock
-class Solution:
-    def maxProfit(self, prices: list[int]) -> int:
-        min_price = prices[0]
-        profit = 0
-       
-        for i in range(1, len(prices)):
-            curr_profit = prices[i] - min_price
-            if curr_profit > profit:
-               profit = curr_profit
-            min_price = min(min_price, prices[i])
-            
-        return profit        
-    
-# #  Best time to buy and sell stock II
+# #  Best time to buy and sell stock
 # class Solution:
 #     def maxProfit(self, prices: list[int]) -> int:
+#         min_price = prices[0]
 #         profit = 0
-#         n = len(prices)
+       
+#         for i in range(1, len(prices)):
+#             curr_profit = prices[i] - min_price
+#             if curr_profit > profit:
+#                profit = curr_profit
+#             min_price = min(min_price, prices[i])
+            
+#         return profit        
+    
+#  Best time to buy and sell stock II
+class Solution:
+    def maxProfit(self, prices: list[int]) -> int:
+        profit = 0
+        n = len(prices)
         
-#         for i in range(n-1):
-#             if prices[i+1] > prices[i]:
-#                 profit += prices[i+1] - prices[i]
-#         return profit
+        for i in range(n-1):
+            if prices[i+1] > prices[i]:
+                profit += prices[i+1] - prices[i]
+        return profit
   
   
 # best time to buy and sell stock III(day16)
