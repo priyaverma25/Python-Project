@@ -274,33 +274,33 @@
 #         return profit        
     
 #  Best time to buy and sell stock II
-class Solution:
-    def maxProfit(self, prices: list[int]) -> int:
-        profit = 0
-        n = len(prices)
+# class Solution:
+#     def maxProfit(self, prices: list[int]) -> int:
+#         profit = 0
+#         n = len(prices)
         
-        for i in range(n-1):
-            if prices[i+1] > prices[i]:
-                profit += prices[i+1] - prices[i]
-        return profit
+#         for i in range(n-1):
+#             if prices[i+1] > prices[i]:
+#                 profit += prices[i+1] - prices[i]
+#         return profit
   
   
 # best time to buy and sell stock III(day16)
-# class Solution:
-#         def maxProfit(self, prices: list[int]) -> int:
+class Solution:
+        def maxProfit(self, prices: list[int]) -> int:
                 
-#                 buy1  = float('-inf')
-#                 sell1 = 0
+                buy1  = float('-inf')
+                sell1 = 0
                 
-#                 buy2 = float('-inf')
-#                 sell2 = 0
+                buy2 = float('-inf')
+                sell2 = 0
                 
-#                 for price in prices:
-#                         buy1 = max(buy1, -price)
-#                         sell1 = max(sell1, buy1 + price)
-#                         buy2 = max(buy2, sell1 - price)
-#                         sell2 = max(sell2, buy2 + price)
-#                 return sell2        
+                for price in prices:
+                        buy1 = max(buy1, -price)
+                        sell1 = max(sell1, buy1 + price)
+                        buy2 = max(buy2, sell1 - price)
+                        sell2 = max(sell2, buy2 + price)
+                return sell2        
                 
 
 # # Richest customer wealth
