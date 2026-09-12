@@ -304,60 +304,60 @@
                 
 
 # # Richest customer wealth
-class Solution:
-    def maximumWealth(self, accounts: List[List[int]]) -> int:
-        ans = 0
-        for account in accounts:
-            ans = max(ans, sum(account))
-        return ans
-    
-    
-    
-# # Spiral matrix
 # class Solution:
-#     def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
-#         n = len(matrix)
-#         m = len(matrix[0])
+#     def maximumWealth(self, accounts: List[List[int]]) -> int:
+#         ans = 0
+#         for account in accounts:
+#             ans = max(ans, sum(account))
+#         return ans
+    
+    
+    
+# Spiral matrix
+class Solution:
+    def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
+        n = len(matrix)
+        m = len(matrix[0])
         
-#         total = n*m
-#         ans = []
-#         c = 0
+        total = n*m
+        ans = []
+        c = 0
         
-#         colstart = 0
-#         rowstart = 0
-#         colend = m-1
-#         rowend = n-1
+        colstart = 0
+        rowstart = 0
+        colend = m-1
+        rowend = n-1
         
-#         while c < total:
-#             # rowstart, colstart->colend
-#             for i in range(colstart, colend+1):
-#                 ans.append(matrix[rowstart][i])
-#                 c+=1
-#             rowstart+=1    
+        while c < total:
+            # rowstart, colstart->colend
+            for i in range(colstart, colend+1):
+                ans.append(matrix[rowstart][i])
+                c+=1
+            rowstart+=1    
             
-#             if c==total:
-#                 break
+            if c==total:
+                break
             
-#             # colend, rowstart->rowend
-#             for i in range(rowstart, rowend+1):
-#                 ans.append(matrix[i][colend])
-#                 c+=1
-#             colend-=1
-#             if c==total:
-#                 break
-#             # rowend, colend->colstart
-#             for i in range(colend, colstart-1, -1):
-#                 ans.append(matrix[rowend][i])
-#                 c+=1
-#             rowend-=1
-#             if c==total:
-#                 break
-#             # colstart, rowend->rowstart
-#             for i in range(rowend, rowstart-1, -1):
-#                 ans.append(matrix[i][colstart])
-#                 c+=1
-#             colstart+=1
-#         return ans         
+            # colend, rowstart->rowend
+            for i in range(rowstart, rowend+1):
+                ans.append(matrix[i][colend])
+                c+=1
+            colend-=1
+            if c==total:
+                break
+            # rowend, colend->colstart
+            for i in range(colend, colstart-1, -1):
+                ans.append(matrix[rowend][i])
+                c+=1
+            rowend-=1
+            if c==total:
+                break
+            # colstart, rowend->rowstart
+            for i in range(rowend, rowstart-1, -1):
+                ans.append(matrix[i][colstart])
+                c+=1
+            colstart+=1
+        return ans         
     
     
 # # Defanging an IP Address
@@ -432,3 +432,295 @@ class Solution:
 #         i+=1
 #         i*=-1
 #         return i  
+
+# # two sum
+# from email.headerregistry import Group
+# from itertools import repeat
+# import re
+
+
+# class Soiution:
+#         def twoSum(self, nums: list[int], target: int) -> list[int]:
+#                 n = len(nums) 
+#                 dict = {}
+                
+#                 for i in range(n):
+#                         rem = target - nums[i]
+#                         if rem in dict:
+#                                 return [dict[rem], i]
+#                         dict[nums[i]] = i
+                        
+# # Two Sum II - Inpu array is sorted
+# class Solution:
+#         def twoSum(self, nums: list[int], target: int) -> list[int]:
+#             left = 0
+#             right =  len(nums)-1
+            
+#             while left<right:
+#                 sum1 = nums[left]+nums[right]
+#                 if sum1==target:
+#                     return [left+1, right+1]
+#                 elif sum1<target:
+#                     right-=1
+#                 else:
+#                     left+=1               
+                
+                
+#                 # n = len(nums) 
+#                 # dict = {}
+                        
+#                 # for i in range(n):
+#                 #     rem = target - nums[i]
+#                 #     if rem in dict:
+#                 #         return [dict[rem]+1,i+1]
+#                 #     dict[nums[i]] = i
+                                
+# # intersection of two arrays
+# class Solution:
+#         def intersection(self, nums1: list[int], nums2: list[int]) -> list[int]:
+#             set1 = set(nums1)
+#             set2 = set(nums2)
+            
+#             return list(set1.intersection(set2))
+        
+# # return list(set(nums1) & set(nums2))
+ 
+# # intersection of two arrays II
+# class Solution:
+#         def intersect(self, nums1: list[int], nums2: list[int]) -> list[int]:
+#                 dict = {}
+#                 result = []
+                 
+#                 for num in nums1:
+#                         dict[num] = dict.get(num, 0) + 1
+                
+#                 for num in nums2:
+#                         if num in dict and dict[num] > 0:
+#                           result.append(num)
+#                           dict[num] -= 1
+                
+#                 return result
+
+
+# # First Unique Character in a string
+# class Solution:
+#         def firstUniqChar(self, s: str) -> int:
+#             dict = {}
+#             for i in s:
+#                 if i not in dict:
+#                     dict[i] = 1
+#                 else:
+#                     dict[i] += 1
+                               
+#                 for i in range(len(s)):
+#                     if dict[s[i]] == 1:
+#                       return i                       
+#                 return -1
+        
+# # valid anagram
+# class Solution:
+#      def isAnagram(self, s: str, t: str) -> bool:
+#         if len(s) != len(t):
+#              return False
+         
+#         dict = {}
+#         for i in s:
+#             dict[i] = dict.get(i, 0) + 1
+         
+#         for i in t:
+#            if i not in dict:
+#                 dict[i] = 1     
+#            else:
+#                 dict[i] += 1
+                
+#         for i in t:
+#             if i not in dict:
+#                 return False
+#             else:
+#                 dict[i] -= 1
+                
+#         for i in dict.values():  
+#             if 1!=0:
+#                 return False
+        
+#         return True
+
+# # Group Anagrams
+# class Solution:
+#      def sortString(self,s): 
+#         s1 = list(s)
+#         s.sort()
+#         return "".join(s)
+#      def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
+#         dict1 = {}
+        
+#         for s in strs:
+#             key = self.sortString(s)
+#             if key in dict1:
+#                 dict1[key].append(s)
+#             else:                
+#                 dict1[key] = [s]
+                
+#         return (dict1.values())        
+ 
+# # Substrings of size Three with distinct characters
+# class Solution:
+#      def countGoodSubstrings(self, s: str) -> int:
+#         n = len(s)
+#         ans = 0 
+        
+#         for i in range(n-2):
+#             if s[i]!=s[i+1] and s[i+1]!=s[i+2] and s[i+2]!=s[i]:
+#                 ans+=1
+        
+#         return ans
+
+# # longest substring without repeating characters
+# class Solution:
+#      def lengthOflongestSubstring(self, s: str) -> int:
+#         n = len(s)
+#         if n==0: 
+#              return 0                                 
+ 
+#         ans = 1
+#         set1 = set({})
+#         set1.add(s[0])
+        
+#         i = 0
+#         j = 1
+        
+#         while j<n:
+#              while s[j] in set1:
+#                 set.discard(s[i])
+#                 i+=1
+#              set.add(s[j])
+#              j+=1
+#              ans = max(ans,(j-i))
+             
+#         return ans  
+
+
+
+
+
+              
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
