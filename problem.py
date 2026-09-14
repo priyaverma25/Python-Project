@@ -361,40 +361,40 @@
     
     
 # # Defanging an IP Address(day19)
-class Solution:
-    def defangIPaddr(self, address: str) -> str:
-        ans = ""
-        for i in address:
-            if i!=".":
-                ans+=i
-            else:
-                ans+="[.]"
-        return ans            
+# class Solution:
+#     def defangIPaddr(self, address: str) -> str:
+#         ans = ""
+#         for i in address:
+#             if i!=".":
+#                 ans+=i
+#             else:
+#                 ans+="[.]"
+#         return ans            
     
-        # return address.replace(".", "[.]")
+#         # return address.replace(".", "[.]")
     
 # # Valid palindrome
-# class Solution:
-#     def isAlphanumeric(s):
-#         x = ord(s)
-#         if 97<=x<=122 or 65<=x<=90 or 48<=x<=57:
-#             return True
-#         return False
-#     def isPalindrome(self, s: str) -> bool:
-#         s = s.lower()
-#         i = 0
-#         j = len(s)-1
-#         while i<j:
-#             if not self.isAlphanumeric(s[i]):
-#                 i+=1
-#             elif not self.isAlphanumeric(s[j]):
-#                 j-=1    
-#             elif s[i]==s[j]:
-#                 i+=1
-#                 j-=1
-#             else:
-#                 return False    
-#         return True
+class Solution:
+    def isAlphanumeric(s):
+        x = ord(s)
+        if 97<=x<=122 or 65<=x<=90 or 48<=x<=57:
+            return True
+        return False
+    def isPalindrome(self, s: str) -> bool:
+        s = s.lower()
+        i = 0
+        j = len(s)-1
+        while i<j:
+            if not self.isAlphanumeric(s[i]):
+                i+=1
+            elif not self.isAlphanumeric(s[j]):
+                j-=1    
+            elif s[i]==s[j]:
+                i+=1
+                j-=1
+            else:
+                return False    
+        return True
     
 # # Reverse String
 # class Solution:
@@ -599,16 +599,49 @@ class Solution:
              
 #         return ans  
 
+# sort an array
+# class Solution:
+#     def sortArray(self, nums: list[int]) -> list[int]:
+#         n = len(nums)
+        
+#         for i in range(n):
+#             isSwap = False    
+#             for j in range(0, n-i-1):
+#               if nums[j] > nums[j+1]:  
+#                 # swap
+#                 temp = nums[j]
+#                 nums[j] = nums[j+1] 
+#                 nums[j+1] = temp
+#                 isSwap = True
+                
+#         if not isSwap:
+#             break
+                
+#         return nums        
+        
+        #     nums.sort()
+        #     return nums  
 
-
-
-
+# sort colors
+# class Solution:
+#     def sortColors(self, nums: list[int]) -> None:
+#        """
+#        Do not return anything """     
+        
               
  
+# # merge Sorted array
+# class Solution:
+        
+ 
+ 
+# Non-overiapping intervals
  
  
  
+# binary search 
  
+# search insert position
  
  
  
