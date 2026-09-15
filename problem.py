@@ -374,27 +374,72 @@
 #         # return address.replace(".", "[.]")
     
 # # Valid palindrome
+# class Solution:
+#     def isAlphanumeric(self,s):
+#         x = ord(s)
+#         if 97<=x<=122 or 65<=x<=90 or 48<=x<=57:
+#             return True
+#         return False
+#     def isPalindrome(self, s: str) -> bool:
+#         s = s.lower()
+
+#         i = 0
+#         j = len(s)-1
+
+#         while i<j:
+#             if not self.isAlphanumeric(s[i]):
+#                 i+=1
+#             elif not self.isAlphanumeric(s[j]):
+#                 j-=1    
+#             elif s[i]==s[j]:
+#                 i+=1
+#                 j-=1
+#             else:
+#                 return False    
+#         return True
+
+# palindrome(beginner)
 class Solution:
-    def isAlphanumeric(s):
-        x = ord(s)
-        if 97<=x<=122 or 65<=x<=90 or 48<=x<=57:
-            return True
-        return False
     def isPalindrome(self, s: str) -> bool:
-        s = s.lower()
-        i = 0
-        j = len(s)-1
-        while i<j:
-            if not self.isAlphanumeric(s[i]):
-                i+=1
-            elif not self.isAlphanumeric(s[j]):
-                j-=1    
-            elif s[i]==s[j]:
-                i+=1
-                j-=1
+        clean = ""
+
+        for ch in s:
+            if ch.isalnum():
+                clean += ch.lower()
+
+        return clean == clean[::-1]
+    
+# Valid Palindrome II 
+class Solution:
+    def validPalindrome(self, s: str) -> bool:
+
+        def checkPalindrome(left, right):
+            while left < right:
+                if s[left] != s[right]:
+                    return False
+
+                left += 1
+                right -= 1
+
+            return True
+
+        left = 0
+        right = len(s) - 1
+
+        while left < right:
+
+            if s[left] == s[right]:
+                left += 1
+                right -= 1
+
             else:
-                return False    
-        return True
+                return (
+                    checkPalindrome(left + 1, right)
+                    or
+                    checkPalindrome(left, right - 1)
+                )
+
+        return True    
     
 # # Reverse String
 # class Solution:
