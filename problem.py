@@ -398,65 +398,83 @@
 #                 return False    
 #         return True
 
-# palindrome(beginner)
-class Solution:
-    def isPalindrome(self, s: str) -> bool:
-        clean = ""
-
-        for ch in s:
-            if ch.isalnum():
-                clean += ch.lower()
-
-        return clean == clean[::-1]
-    
-# Valid Palindrome II 
-class Solution:
-    def validPalindrome(self, s: str) -> bool:
-
-        def checkPalindrome(left, right):
-            while left < right:
-                if s[left] != s[right]:
-                    return False
-
-                left += 1
-                right -= 1
-
-            return True
-
-        left = 0
-        right = len(s) - 1
-
-        while left < right:
-
-            if s[left] == s[right]:
-                left += 1
-                right -= 1
-
-            else:
-                return (
-                    checkPalindrome(left + 1, right)
-                    or
-                    checkPalindrome(left, right - 1)
-                )
-
-        return True    
-    
-# # Reverse String
+# # palindrome(beginner)
 # class Solution:
-#     def reverseString(self, s: list[str]) -> None:
-#         """
-#         Do not return anything, modify s in-place instead.
-#         """
-#         i = 0
-#         j = len(s)-1
+#     def isPalindrome(self, s: str) -> bool:
+#         clean = ""
+
+#         for ch in s:
+#             if ch.isalnum():
+#                 clean += ch.lower()
+
+#         return clean == clean[::-1]
+    
+# # Valid Palindrome II 
+# class Solution:
+#     def validPalindrome(self, s: str) -> bool:
+
+#         def checkPalindrome(left, right):
+#             while left < right:
+#                 if s[left] != s[right]:
+#                     return False
+
+#                 left += 1
+#                 right -= 1
+
+#             return True
+
+#         left = 0
+#         right = len(s) - 1
+
+#         while left < right:
+
+#             if s[left] == s[right]:
+#                 left += 1
+#                 right -= 1
+
+#             else:
+#                 return (
+#                     checkPalindrome(left + 1, right)
+#                     or
+#                     checkPalindrome(left, right - 1)
+#                 )
+
+#         return True    
+    
+#     git par ho gaya hai commit 
+
+# Reverse String
+class Solution:
+    def reverseString(self, s: list[str]) -> None:
+        """
+        Do not return anything, modify s in-place instead.
+        """
+        i = 0
+        j = len(s)-1
         
-#         while i<j:
-#             temp = s[i]
-#             s[i] = s[j]
-#             s[j] = temp
-#             i+=1
-#             j-=1
-# # s.reverse()
+        while i<j:
+            temp = s[i]
+            s[i] = s[j]
+            s[j] = temp
+            i+=1
+            j-=1
+# s.reverse()
+
+# # reverse string II
+# class Solution:
+#     def reverseStr(self, s: str, k: int) -> str:
+#         s = list(s)
+
+#         for i in range(0, len(s), 2 * k):
+#             left = i
+#             right = min(i + k - 1, len(s) - 1)
+
+#             while left < right:
+#                 s[left], s[right] = s[right], s[left]
+#                 left += 1
+#                 right -= 1
+
+#         return "".join(s)
         
 # # Reverse Words in a String
 # class Solution:
@@ -465,6 +483,22 @@ class Solution:
 #         s = s.split()
 #         s.reverse()
 #         return " ".join(s)
+
+# return " ".join(s.split()[::-1])
+
+# Reverse words in a string III
+# class Solution:
+#     def reverseWords(self, s: str) -> str:
+#         words = s.split()
+
+#         for i in range(len(words)):
+#             words[i] = words[i][::-1]
+
+#         return " ".join(words)
+
+#     return " ".join(word[::-1] for word in s.split())
+
+
     
 # # Length of last Word
 # class Solution:
@@ -479,11 +513,6 @@ class Solution:
 #         return i  
 
 # # two sum
-# from email.headerregistry import Group
-# from itertools import repeat
-# import re
-
-
 # class Soiution:
 #         def twoSum(self, nums: list[int], target: int) -> list[int]:
                 # n = len(nums) 
