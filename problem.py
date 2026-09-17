@@ -444,37 +444,37 @@
 #     git par ho gaya hai commit 
 
 # Reverse String
-class Solution:
-    def reverseString(self, s: list[str]) -> None:
-        """
-        Do not return anything, modify s in-place instead.
-        """
-        i = 0
-        j = len(s)-1
+# class Solution:
+#     def reverseString(self, s: list[str]) -> None:
+#         """
+#         Do not return anything, modify s in-place instead.
+#         """
+#         i = 0
+#         j = len(s)-1
         
-        while i<j:
-            temp = s[i]
-            s[i] = s[j]
-            s[j] = temp
-            i+=1
-            j-=1
+#         while i<j:
+#             temp = s[i]
+#             s[i] = s[j]
+#             s[j] = temp
+#             i+=1
+#             j-=1
 # s.reverse()
 
 # # reverse string II
-# class Solution:
-#     def reverseStr(self, s: str, k: int) -> str:
-#         s = list(s)
+class Solution:
+    def reverseStr(self, s: str, k: int) -> str:
+        s = list(s)
 
-#         for i in range(0, len(s), 2 * k):
-#             left = i
-#             right = min(i + k - 1, len(s) - 1)
+        for i in range(0, len(s), 2 * k):
+            left = i
+            right = min(i + k - 1, len(s) - 1)
 
-#             while left < right:
-#                 s[left], s[right] = s[right], s[left]
-#                 left += 1
-#                 right -= 1
+            while left < right:
+                s[left], s[right] = s[right], s[left]
+                left += 1
+                right -= 1
 
-#         return "".join(s)
+        return "".join(s)
         
 # # Reverse Words in a String
 # class Solution:
@@ -512,6 +512,17 @@ class Solution:
 #         i*=-1
 #         return i  
 
+# class Solution:
+#     def lengthOfLastWord(self, s: str) -> int:
+#         s = s.strip()
+#         n = len(s)
+#         i = n - 1
+
+#         while i >= 0 and s[i] != " ":
+#             i -= 1
+
+#         return n - i - 1
+
 # # two sum
 # class Soiution:
 #         def twoSum(self, nums: list[int], target: int) -> list[int]:
@@ -548,6 +559,28 @@ class Solution:
 #                 #     if rem in dict:
 #                 #         return [dict[rem]+1,i+1]
 #                 #     dict[nums[i]] = i
+                                
+                                
+# class Solution:
+#     def twoSum(self, numbers: list[int], target: int) -> list[int]:
+
+#         left = 0
+#         right = len(numbers) - 1
+
+#         while left < right:
+
+#             total = numbers[left] + numbers[right]
+
+#             if total == target:
+#                 return [left + 1, right + 1]
+
+#             elif total < target:
+#                 left += 1
+
+#             else:
+#                 right -= 1                             
+                                
+                                
                                 
 # # intersection of two arrays
 # class Solution:
