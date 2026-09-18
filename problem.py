@@ -460,29 +460,29 @@
 #             j-=1
 # s.reverse()
 
-# # reverse string II
-class Solution:
-    def reverseStr(self, s: str, k: int) -> str:
-        s = list(s)
-
-        for i in range(0, len(s), 2 * k):
-            left = i
-            right = min(i + k - 1, len(s) - 1)
-
-            while left < right:
-                s[left], s[right] = s[right], s[left]
-                left += 1
-                right -= 1
-
-        return "".join(s)
-        
-# # Reverse Words in a String
+# # # reverse string II
 # class Solution:
-#     def reverseWords(self, s: str) -> str:
-#         s = s.strip()
-#         s = s.split()
-#         s.reverse()
-#         return " ".join(s)
+#     def reverseStr(self, s: str, k: int) -> str:
+#         s = list(s)
+
+#         for i in range(0, len(s), 2 * k):
+#             left = i
+#             right = min(i + k - 1, len(s) - 1)
+
+#             while left < right:
+#                 s[left], s[right] = s[right], s[left]
+#                 left += 1
+#                 right -= 1
+
+#         return "".join(s)
+        
+# Reverse Words in a String
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        s = s.strip()
+        s = s.split()
+        s.reverse()
+        return " ".join(s)
 
 # return " ".join(s.split()[::-1])
 
