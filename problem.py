@@ -477,24 +477,24 @@
 #         return "".join(s)
         
 # Reverse Words in a String
-class Solution:
-    def reverseWords(self, s: str) -> str:
-        s = s.strip()
-        s = s.split()
-        s.reverse()
-        return " ".join(s)
-
-# return " ".join(s.split()[::-1])
-
-# Reverse words in a string III
 # class Solution:
 #     def reverseWords(self, s: str) -> str:
-#         words = s.split()
+#         s = s.strip()
+#         s = s.split()
+#         s.reverse()
+#         return " ".join(s)
 
-#         for i in range(len(words)):
-#             words[i] = words[i][::-1]
+# # return " ".join(s.split()[::-1])
 
-#         return " ".join(words)
+# Reverse words in a string III
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        words = s.split()
+
+        for i in range(len(words)):
+            words[i] = words[i][::-1]
+
+        return " ".join(words)
 
 #     return " ".join(word[::-1] for word in s.split())
 
