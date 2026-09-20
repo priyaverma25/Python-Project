@@ -610,19 +610,19 @@ class Solution:
 
 
 # # First Unique Character in a string
-# class Solution:
-#         def firstUniqChar(self, s: str) -> int:
-#             dict = {}
-#             for i in s:
-#                 if i not in dict:
-#                     dict[i] = 1
-#                 else:
-#                     dict[i] += 1
+class Solution:
+        def firstUniqChar(self, s: str) -> int:
+            dict = {}
+            for i in s:
+                if i not in dict:
+                    dict[i] = 1
+                else:
+                    dict[i] += 1
                                
-#                 for i in range(len(s)):
-#                     if dict[s[i]] == 1:
-#                       return i                       
-#                 return -1
+                for i in range(len(s)):
+                    if dict[s[i]] == 1:
+                      return i                       
+                return -1
         
 # # valid anagram
 # class Solution:
@@ -652,23 +652,32 @@ class Solution:
         
 #         return True
 
+
+# 
+# class Soution:
+#     def isAnagram(self, s: str, t: str) -> bool:        
+#       if len(s) != len(t):
+#         return False
+           
+#       return sorted(s) == sorted(t)
+
+
+
+
 # # Group Anagrams
 # class Solution:
-#      def sortString(self,s): 
-#         s1 = list(s)
-#         s.sort()
-#         return "".join(s)
-#      def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
-#         dict1 = {}
-        
-#         for s in strs:
-#             key = self.sortString(s)
-#             if key in dict1:
-#                 dict1[key].append(s)
-#             else:                
-#                 dict1[key] = [s]
-                
-#         return (dict1.values())        
+#     def groupAnagrams(self, strs):
+#         groups = {}
+
+#         for word in strs:
+#             key = ''.join(sorted(word))
+
+#             if key not in groups:
+#                 groups[key] = []
+
+#             groups[key].append(word)
+
+#         return list(groups.values())       
  
 # # Substrings of size Three with distinct characters
 # class Solution:
