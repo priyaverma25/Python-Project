@@ -610,56 +610,56 @@ class Solution:
 
 
 # # First Unique Character in a string
-class Solution:
-        def firstUniqChar(self, s: str) -> int:
-            dict = {}
-            for i in s:
-                if i not in dict:
-                    dict[i] = 1
-                else:
-                    dict[i] += 1
-                               
-                for i in range(len(s)):
-                    if dict[s[i]] == 1:
-                      return i                       
-                return -1
-        
-# # valid anagram
 # class Solution:
-#      def isAnagram(self, s: str, t: str) -> bool:
-#         if len(s) != len(t):
-#              return False
-         
-#         dict = {}
-#         for i in s:
-#             dict[i] = dict.get(i, 0) + 1
-         
-#         for i in t:
-#            if i not in dict:
-#                 dict[i] = 1     
-#            else:
-#                 dict[i] += 1
-                
-#         for i in t:
-#             if i not in dict:
-#                 return False
-#             else:
-#                 dict[i] -= 1
-                
-#         for i in dict.values():  
-#             if 1!=0:
-#                 return False
+        # def firstUniqChar(self, s: str) -> int:
+        #     dict = {}
+        #     for i in s:
+        #         if i not in dict:
+        #             dict[i] = 1
+        #         else:
+        #             dict[i] += 1
+                               
+        #         for i in range(len(s)):
+        #             if dict[s[i]] == 1:
+        #               return i                       
+        #         return -1
         
-#         return True
+# valid anagram
+class Solution:
+     def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+             return False
+         
+        dict = {}
+        for i in s:
+            dict[i] = dict.get(i, 0) + 1
+         
+        for i in t:
+           if i not in dict:
+                dict[i] = 1     
+           else:
+                dict[i] += 1
+                
+        for i in t:
+            if i not in dict:
+                return False
+            else:
+                dict[i] -= 1
+                
+        for i in dict.values():  
+            if 1!=0:
+                return False
+        
+        return True
 
 
-# 
-# class Soution:
-#     def isAnagram(self, s: str, t: str) -> bool:        
-#       if len(s) != len(t):
-#         return False
+
+class Soution:
+    def isAnagram(self, s: str, t: str) -> bool:        
+      if len(s) != len(t):
+        return False
            
-#       return sorted(s) == sorted(t)
+      return sorted(s) == sorted(t)
 
 
 
