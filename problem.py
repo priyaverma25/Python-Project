@@ -625,59 +625,30 @@ class Solution:
         #         return -1
         
 # valid anagram
-class Solution:
-     def isAnagram(self, s: str, t: str) -> bool:
-        if len(s) != len(t):
-             return False
-         
-        dict = {}
-        for i in s:
-            dict[i] = dict.get(i, 0) + 1
-         
-        for i in t:
-           if i not in dict:
-                dict[i] = 1     
-           else:
-                dict[i] += 1
-                
-        for i in t:
-            if i not in dict:
-                return False
-            else:
-                dict[i] -= 1
-                
-        for i in dict.values():  
-            if 1!=0:
-                return False
-        
-        return True
-
-
-
-class Soution:
-    def isAnagram(self, s: str, t: str) -> bool:        
-      if len(s) != len(t):
-        return False
+# class Soution:
+#     def isAnagram(self, s: str, t: str) -> bool:        
+#       if len(s) != len(t):
+#         return False
            
-      return sorted(s) == sorted(t)
+#       return sorted(s) == sorted(t)
 
 
 
 
-# # Group Anagrams
-# class Solution:
-#     def groupAnagrams(self, strs):
-#         groups = {}
+# Group Anagrams
+class Solution:
+    def groupAnagrams(self, strs):
+        groups = {}
 
-#         for word in strs:
-#             key = ''.join(sorted(word))
+        for word in strs:
+            key = ''.join(sorted(word))
 
-#             if key not in groups:
-#                 groups[key] = []
+            if key not in groups:
+                groups[key] = []
 
-#             groups[key].append(word)
+            groups[key].append(word)
 
-#         return list(groups.values())       
+        return list(groups.values())       
  
 # # Substrings of size Three with distinct characters
 # class Solution:
@@ -707,9 +678,9 @@ class Soution:
         
 #         while j<n:
 #              while s[j] in set1:
-#                 set.discard(s[i])
+#                 set1.discard(s[i])
 #                 i+=1
-#              set.add(s[j])
+#              set1.add(s[j])
 #              j+=1
 #              ans = max(ans,(j-i))
              
@@ -742,35 +713,144 @@ class Soution:
 # class Solution:
 #     def sortColors(self, nums: list[int]) -> None:
 #        """
-#        Do not return anything """     
+#        Do not return anything 
+#        """     
+        # low = 0 
+        # mid = 0 
+        # high = len(nums) - 1
         
+        # while mid <= high: 
+                
+        #     if nums[mid] == 0: 
+        #         nums[low], nums[mid] = nums[mid], nums[low] 
+        #         low += 1 
+        #         mid += 1 
+        #     elif nums[mid] == 1: 
+        #         mid += 1 
+                
+        #     else: 
+        #         nums[mid] = nums[mid], nums[high] = nums[high], nums[mid] 
+        #         high -= 1
               
  
 # # merge Sorted array
+
 # class Solution:
+#     def merge(self, nums1: list[int], m: int, nums2: list[int], n: int) -> None:
+#         """
+#         Do not return anything, modify nums1 in-place instead.
+#         """
         
+#         i = m - 1
+#         j = n - 1
+#         k = m + n - 1
+
+#         while i >= 0 and j >= 0:
+
+#             if nums1[i] > nums2[j]:
+#                 nums1[k] = nums1[i]
+#                 i -= 1
+#             else:
+#                 nums1[k] = nums2[j]
+#                 j -= 1
+
+#             k -= 1
+
+#         while j >= 0:
+#             nums1[k] = nums2[j]
+#             j -= 1
+#             k -= 1
+
+# # Non-overiapping intervals
+
+# class Solution:
+#     def eraseOverlapIntervals(self, intervals: list[list[int]]) -> int:
+
+#         # Sort intervals by ending time
+#         intervals.sort(key=lambda x: x[1])
+
+#         removed = 0
+#         end = intervals[0][1]
+
+#         for i in range(1, len(intervals)):
+
+#             # Overlap ho raha hai
+#             if intervals[i][0] < end:
+#                 removed += 1
+
+#             else:
+#                 # Overlap nahi hai
+#                 end = intervals[i][1]
+
+#         return removed
+
  
  
-# Non-overiapping intervals
  
+# # binary search 
+# class Solution:
+#     def search(self, nums: list[int], target: int) -> int:
+
+#         low = 0
+#         high = len(nums) - 1
+
+#         while low <= high:
+
+#             mid = (low + high) // 2
+
+#             if nums[mid] == target:
+#                 return mid
+
+#             elif nums[mid] < target:
+#                 low = mid + 1
+
+#             else:
+#                 high = mid - 1
+
+#         return -1
+
+
+# # search insert position
+# class Solution:
+#     def searchInsert(self, nums: list[int], target: int) -> int:
+
+#         low = 0
+#         high = len(nums) - 1
+
+#         while low <= high:
+
+#             mid = (low + high) // 2
+
+#             if nums[mid] == target:
+#                 return mid
+
+#             elif nums[mid] < target:
+#                 low = mid + 1
+
+#             else:
+#                 high = mid - 1
+
+#         return low
+
+
+# # Middle of the linked list
+# class Solution: 
+#     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+#             curr = head
+            
+#             l = 0
+#             while curr!=None:
+#                 curr = curr.next    
+#                 l+=1
+             
+            
+#             curr = head
+#             for i in range(l//2):
+#                 curr = curr.next     
  
+#             return curr
  
-# binary search 
- 
-# search insert position
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+# delet 
  
  
  
