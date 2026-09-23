@@ -635,32 +635,32 @@ class Solution:
 
 
 
-# Group Anagrams
-class Solution:
-    def groupAnagrams(self, strs):
-        groups = {}
+# # Group Anagrams
+# class Solution:
+#     def groupAnagrams(self, strs):
+#         groups = {}
+                 
+#         for word in strs:
+#             key = ''.join(sorted(word))
 
-        for word in strs:
-            key = ''.join(sorted(word))
+#             if key not in groups:
+#                 groups[key] = []
 
-            if key not in groups:
-                groups[key] = []
+#             groups[key].append(word)
 
-            groups[key].append(word)
-
-        return list(groups.values())       
+#         return list(groups.values())       
  
 # # Substrings of size Three with distinct characters
-# class Solution:
-#      def countGoodSubstrings(self, s: str) -> int:
-#         n = len(s)
-#         ans = 0 
+class Solution:
+     def countGoodSubstrings(self, s: str) -> int:
+        n = len(s)
+        ans = 0 
         
-#         for i in range(n-2):
-#             if s[i]!=s[i+1] and s[i+1]!=s[i+2] and s[i+2]!=s[i]:
-#                 ans+=1
+        for i in range(n-2):
+            if s[i]!=s[i+1] and s[i+1]!=s[i+2] and s[i+2]!=s[i]:
+                ans+=1
         
-#         return ans
+        return ans
 
 # # longest substring without repeating characters
 # class Solution:
@@ -706,8 +706,7 @@ class Solution:
                 
 #         return nums        
         
-        #     nums.sort()
-        #     return nums  
+        
 
 # sort colors
 # class Solution:
