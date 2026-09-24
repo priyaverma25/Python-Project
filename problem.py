@@ -651,40 +651,40 @@ class Solution:
 #         return list(groups.values())       
  
 # # Substrings of size Three with distinct characters
-class Solution:
-     def countGoodSubstrings(self, s: str) -> int:
-        n = len(s)
-        ans = 0 
+# class Solution:
+#      def countGoodSubstrings(self, s: str) -> int:
+#         n = len(s)
+#         ans = 0 
         
-        for i in range(n-2):
-            if s[i]!=s[i+1] and s[i+1]!=s[i+2] and s[i+2]!=s[i]:
-                ans+=1
+#         for i in range(n-2):
+#             if s[i]!=s[i+1] and s[i+1]!=s[i+2] and s[i+2]!=s[i]:
+#                 ans+=1
         
-        return ans
+#         return ans
 
 # # longest substring without repeating characters
-# class Solution:
-#      def lengthOflongestSubstring(self, s: str) -> int:
-#         n = len(s)
-#         if n==0: 
-#              return 0                                 
+class Solution:
+     def lengthOflongestSubstring(self, s: str) -> int:
+        n = len(s)
+        if n==0: 
+             return 0                                 
  
-#         ans = 1
-#         set1 = set({})
-#         set1.add(s[0])
+        ans = 1
+        set1 = set({})
+        set1.add(s[0])
         
-#         i = 0
-#         j = 1
+        i = 0
+        j = 1
         
-#         while j<n:
-#              while s[j] in set1:
-#                 set1.discard(s[i])
-#                 i+=1
-#              set1.add(s[j])
-#              j+=1
-#              ans = max(ans,(j-i))
+        while j<n:
+             while s[j] in set1:
+                set1.discard(s[i])
+                i+=1
+             set1.add(s[j])
+             j+=1
+             ans = max(ans,(j-i))
              
-#         return ans  
+        return ans  
 
 # sort an array
 # class Solution:
@@ -733,7 +733,6 @@ class Solution:
               
  
 # # merge Sorted array
-
 # class Solution:
 #     def merge(self, nums1: list[int], m: int, nums2: list[int], n: int) -> None:
 #         """
