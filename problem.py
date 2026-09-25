@@ -487,14 +487,14 @@
 # # return " ".join(s.split()[::-1])
 
 # Reverse words in a string III
-class Solution:
-    def reverseWords(self, s: str) -> str:
-        words = s.split()
+# class Solution:
+#     def reverseWords(self, s: str) -> str:
+#         words = s.split()
 
-        for i in range(len(words)):
-            words[i] = words[i][::-1]
+#         for i in range(len(words)):
+#             words[i] = words[i][::-1]
 
-        return " ".join(words)
+#         return " ".join(words)
 
 #     return " ".join(word[::-1] for word in s.split())
 
@@ -663,48 +663,48 @@ class Solution:
 #         return ans
 
 # # longest substring without repeating characters
-class Solution:
-     def lengthOflongestSubstring(self, s: str) -> int:
-        n = len(s)
-        if n==0: 
-             return 0                                 
+# class Solution:
+#      def lengthOflongestSubstring(self, s: str) -> int:
+        # n = len(s)
+        # if n==0: 
+        #      return 0                                 
  
-        ans = 1
-        set1 = set({})
-        set1.add(s[0])
+        # ans = 1
+        # set1 = set({})
+        # set1.add(s[0])
         
-        i = 0
-        j = 1
+        # i = 0
+        # j = 1
         
-        while j<n:
-             while s[j] in set1:
-                set1.discard(s[i])
-                i+=1
-             set1.add(s[j])
-             j+=1
-             ans = max(ans,(j-i))
+        # while j<n:
+        #      while s[j] in set1:
+        #         set1.discard(s[i])
+        #         i+=1
+        #      set1.add(s[j])
+        #      j+=1
+        #      ans = max(ans,(j-i))
              
-        return ans  
+        # return ans  
 
 # sort an array
-# class Solution:
-#     def sortArray(self, nums: list[int]) -> list[int]:
-#         n = len(nums)
+class Solution:
+    def sortArray(self, nums: list[int]) -> list[int]:
+        n = len(nums)
         
-#         for i in range(n):
-#             isSwap = False    
-#             for j in range(0, n-i-1):
-#               if nums[j] > nums[j+1]:  
-#                 # swap
-#                 temp = nums[j]
-#                 nums[j] = nums[j+1] 
-#                 nums[j+1] = temp
-#                 isSwap = True
+        for i in range(n):
+            isSwap = False    
+            for j in range(0, n-i-1):
+              if nums[j] > nums[j+1]:  
+                # swap
+                temp = nums[j]
+                nums[j] = nums[j+1] 
+                nums[j+1] = temp
+                isSwap = True
                 
-#         if not isSwap:
-#             break
+        if not isSwap:
+           break
                 
-#         return nums        
+        return nums        
         
         
 
