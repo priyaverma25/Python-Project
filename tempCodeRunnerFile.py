@@ -1,13 +1,25 @@
 class Solution:
-    def maxSubArray(self, nums: list[int]) -> int:
-        curr_sum = 0
-        max_sum = nums[0]
+    def merge(self, nums1: list[int], m: int, nums2: list[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
         
-        for i in range(len(nums)):
-            curr_sum += nums[i]
-            if curr_sum > max_sum:
-                max_sum = curr_sum
-                if curr_sum < 0:
-                    curr_sum = 0
-        return max_sum      
-    
+        i = m - 1
+        j = n - 1
+        k = m + n - 1
+
+        while i >= 0 and j >= 0:
+
+            if nums1[i] > nums2[j]:
+                nums1[k] = nums1[i]
+                i -= 1
+            else:
+                nums1[k] = nums2[j]
+                j -= 1
+
+            k -= 1
+
+        while j >= 0:
+            nums1[k] = nums2[j]
+            j -= 1
+            k -= 1
