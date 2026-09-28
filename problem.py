@@ -709,27 +709,27 @@
         
 
 # sort colors
-class Solution:
-    def sortColors(self, nums: list[int]) -> None:
-        """
-        Do not return anything 
-        """     
-        low = 0 
-        mid = 0 
-        high = len(nums) - 1
+# class Solution:
+#     def sortColors(self, nums: list[int]) -> None:
+#         """
+#         Do not return anything 
+#         """     
+#         low = 0 
+#         mid = 0 
+#         high = len(nums) - 1
         
-        while mid <= high: 
+#         while mid <= high: 
                 
-            if nums[mid] == 0: 
-                nums[low], nums[mid] = nums[mid], nums[low] 
-                low += 1 
-                mid += 1 
-            elif nums[mid] == 1: 
-                mid += 1 
+#             if nums[mid] == 0: 
+#                 nums[low], nums[mid] = nums[mid], nums[low] 
+#                 low += 1 
+#                 mid += 1 
+#             elif nums[mid] == 1: 
+#                 mid += 1 
                 
-            else: 
-                nums[mid] = nums[mid], nums[high] = nums[high], nums[mid] 
-                high -= 1
+#             else: 
+#                 nums[mid] = nums[mid], nums[high] = nums[high], nums[mid] 
+#                 high -= 1
               
  
 # # merge Sorted array
@@ -743,44 +743,44 @@ class Solution:
 #         j = n - 1
 #         k = m + n - 1
 
-#         while i >= 0 and j >= 0:
+        # while i >= 0 and j >= 0:
 
-#             if nums1[i] > nums2[j]:
-#                 nums1[k] = nums1[i]
-#                 i -= 1
-#             else:
-#                 nums1[k] = nums2[j]
-#                 j -= 1
+        #     if nums1[i] > nums2[j]:
+        #         nums1[k] = nums1[i]
+        #         i -= 1
+        #     else:
+        #         nums1[k] = nums2[j]
+        #         j -= 1
 
-#             k -= 1
+        #     k -= 1
 
-#         while j >= 0:
-#             nums1[k] = nums2[j]
-#             j -= 1
-#             k -= 1
+        # while j >= 0:
+        #     nums1[k] = nums2[j]
+        #     j -= 1
+        #     k -= 1
 
 # # Non-overiapping intervals
 
-# class Solution:
-#     def eraseOverlapIntervals(self, intervals: list[list[int]]) -> int:
+class Solution:
+    def eraseOverlapIntervals(self, intervals: list[list[int]]) -> int:
 
-#         # Sort intervals by ending time
-#         intervals.sort(key=lambda x: x[1])
+        # Sort intervals by ending time
+        intervals.sort(key=lambda x: x[1])
 
-#         removed = 0
-#         end = intervals[0][1]
+        removed = 0
+        end = intervals[0][1]
 
-#         for i in range(1, len(intervals)):
+        for i in range(1, len(intervals)):
 
-#             # Overlap ho raha hai
-#             if intervals[i][0] < end:
-#                 removed += 1
+            # Overlap ho raha hai
+            if intervals[i][0] < end:
+                removed += 1
 
-#             else:
-#                 # Overlap nahi hai
-#                 end = intervals[i][1]
+            else:
+                # Overlap nahi hai
+                end = intervals[i][1]
 
-#         return removed
+        return removed
 
  
  
