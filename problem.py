@@ -761,51 +761,51 @@
 
 # # Non-overiapping intervals
 
-class Solution:
-    def eraseOverlapIntervals(self, intervals: list[list[int]]) -> int:
+# class Solution:
+#     def eraseOverlapIntervals(self, intervals: list[list[int]]) -> int:
 
-        # Sort intervals by ending time
-        intervals.sort(key=lambda x: x[1])
+#         # Sort intervals by ending time
+#         intervals.sort(key=lambda x: x[1])
 
-        removed = 0
-        end = intervals[0][1]
+#         removed = 0
+#         end = intervals[0][1]
 
-        for i in range(1, len(intervals)):
+#         for i in range(1, len(intervals)):
 
-            # Overlap ho raha hai
-            if intervals[i][0] < end:
-                removed += 1
+#             # Overlap ho raha hai
+#             if intervals[i][0] < end:
+#                 removed += 1
 
-            else:
-                # Overlap nahi hai
-                end = intervals[i][1]
+#             else:
+#                 # Overlap nahi hai
+#                 end = intervals[i][1]
 
-        return removed
+#         return removed
 
  
  
  
 # # binary search 
-# class Solution:
-#     def search(self, nums: list[int], target: int) -> int:
+class Solution:
+    def search(self, nums: list[int], target: int) -> int:
 
-#         low = 0
-#         high = len(nums) - 1
+        low = 0
+        high = len(nums) - 1
 
-#         while low <= high:
+        while low <= high:
 
-#             mid = (low + high) // 2
+            mid = (low + high) // 2
 
-#             if nums[mid] == target:
-#                 return mid
+            if nums[mid] == target:
+                return mid
 
-#             elif nums[mid] < target:
-#                 low = mid + 1
+            elif nums[mid] < target:
+                low = mid + 1
 
-#             else:
-#                 high = mid - 1
+            else:
+                high = mid - 1
 
-#         return -1
+        return -1
 
 
 # # search insert position
