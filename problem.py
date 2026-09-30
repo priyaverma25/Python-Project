@@ -786,31 +786,8 @@
  
  
 # # binary search 
-class Solution:
-    def search(self, nums: list[int], target: int) -> int:
-
-        low = 0
-        high = len(nums) - 1
-
-        while low <= high:
-
-            mid = (low + high) // 2
-
-            if nums[mid] == target:
-                return mid
-
-            elif nums[mid] < target:
-                low = mid + 1
-
-            else:
-                high = mid - 1
-
-        return -1
-
-
-# # search insert position
 # class Solution:
-#     def searchInsert(self, nums: list[int], target: int) -> int:
+#     def search(self, nums: list[int], target: int) -> int:
 
 #         low = 0
 #         high = len(nums) - 1
@@ -828,27 +805,50 @@ class Solution:
 #             else:
 #                 high = mid - 1
 
-#         return low
+#         return -1
 
 
-# # Middle of the linked list
-# class Solution: 
-#     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
-#             curr = head
+# search insert position
+class Solution:
+    def searchInsert(self, nums: list[int], target: int) -> int:
+
+        low = 0
+        high = len(nums) - 1
+
+        while low <= high:
+
+            mid = (low + high) // 2
+
+            if nums[mid] == target:
+                return mid
+
+            elif nums[mid] < target:
+                low = mid + 1
+
+            else:
+                high = mid - 1
+
+        return low
+
+
+# Middle of the linked list
+class Solution: 
+    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+            curr = head
             
-#             l = 0
-#             while curr!=None:
-#                 curr = curr.next    
-#                 l+=1
+            l = 0
+            while curr!=None:
+                curr = curr.next    
+                l+=1
              
             
-#             curr = head
-#             for i in range(l//2):
-#                 curr = curr.next     
+            curr = head
+            for i in range(l//2):
+                curr = curr.next     
  
-#             return curr
+            return curr
  
-# delet 
+delet 
  
  
  
