@@ -809,53 +809,71 @@
 
 
 # search insert position
-class Solution:
-    def searchInsert(self, nums: list[int], target: int) -> int:
+# class Solution:
+#     def searchInsert(self, nums: list[int], target: int) -> int:
 
-        low = 0
-        high = len(nums) - 1
+#         low = 0
+#         high = len(nums) - 1
 
-        while low <= high:
+#         while low <= high:
 
-            mid = (low + high) // 2
+#             mid = (low + high) // 2
 
-            if nums[mid] == target:
-                return mid
+#             if nums[mid] == target:
+#                 return mid
 
-            elif nums[mid] < target:
-                low = mid + 1
+#             elif nums[mid] < target:
+#                 low = mid + 1
 
-            else:
-                high = mid - 1
+#             else:
+#                 high = mid - 1
 
-        return low
+#         return low
 
 
 # Middle of the linked list
-class Solution: 
-    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
-            curr = head
+# class Solution: 
+#     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+#             curr = head
             
-            l = 0
-            while curr!=None:
-                curr = curr.next    
-                l+=1
+#             l = 0
+#             while curr!=None:
+#                 curr = curr.next    
+#                 l+=1
              
             
-            curr = head
-            for i in range(l//2):
-                curr = curr.next     
+#             curr = head
+#             for i in range(l//2):
+#                 curr = curr.next     
  
-            return curr
+#             return curr
  
-delet 
+# delete node in a linked list 
+class Solution:
+     def deleteNode(self, node):   
+        node.val = node.next.val
+        node.next = node.next.next 
  
+# remove nth node from end of list 
+# class Solution:
+#     def removeNthfronEnd(self, head:  )     
+#         p1 = head
+#         p2 = head
+        
+#         for i in range(n):
+#             p2 = p2.next
+            
+#         if p2=None:
+#             head = head.next
+#             return head
+        
+#         while p2=next!=None
+#              p2 = p2.next    
+#              p1 = p1.next
  
- 
- 
- 
- 
- 
+#         p1.next = p1.next.next
+        
+#         return Next
  
  
  
