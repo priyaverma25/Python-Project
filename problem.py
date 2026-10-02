@@ -849,54 +849,74 @@
 #             return curr
  
 # delete node in a linked list 
-class Solution:
-     def deleteNode(self, node):   
-        node.val = node.next.val
-        node.next = node.next.next 
+# class Solution:
+#      def deleteNode(self, node):   
+#         node.val = node.next.val
+#         node.next = node.next.next 
  
 # remove nth node from end of list 
-# class Solution:
-#     def removeNthfronEnd(self, head:  )     
-#         p1 = head
-#         p2 = head
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        p1 = head
+        p2 = head
         
-#         for i in range(n):
-#             p2 = p2.next
+        for i in range(n):
+            p2 = p2.next
             
-#         if p2=None:
-#             head = head.next
-#             return head
+        if p2 is None:
+            head = head.next
+            return head
         
-#         while p2=next!=None
-#              p2 = p2.next    
-#              p1 = p1.next
+        while p2.next is not None:
+             p2 = p2.next    
+             p1 = p1.next
  
-#         p1.next = p1.next.next
+        p1.next = p1.next.next
         
-#         return Next
+        return head
  
+# remove Duplicates from  
+# class Solution:
+#    def deleteDuplicates(self, head: Optional[listNode]) -> Optional[listNode]:
+#         # corner cases
+#         if head==None or head.next==None:
+#             return head     
  
+#         curr = head 
+#         while curr!=None and curr.next!=None:
+#              # duplicate found 
+#              if curr.next.val==curr.val:
+#                 curr.next = curr.next.next
+#              else:
+#                 curr = curr.next
  
+#         return head
  
+# # remove duplicates from sorted list II
+# class Solution:
+#     def deleteDuplicates(self, head: Optional[listNode]) -> Optional[listnode]:
+#         # corner cases
+#         if head==None or head.next==None:
+#            return head
+#         dummy = listNode(0)
+#         dummy.next = head
+#         curr = dummy
+        
+        
+# reverse linked list
+# class Solution:
+#   def reversllist(self, head: Optional[listNode]) -> Optional[listNode]:
  
+        
+#  Problem 6: Rotate List        
+        
+#  Problem 7: Intersection of Two Linked Lists 
  
+#  Problem 8: Add Two Numbers
+
+# Problem 9: Linked List Cycle 
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+# Problem 10: Linked List Cycle II 
  
  
  
