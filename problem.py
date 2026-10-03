@@ -855,42 +855,42 @@
 #         node.next = node.next.next 
  
 # remove nth node from end of list 
-class Solution:
-    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        p1 = head
-        p2 = head
+# class Solution:
+#     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+#         p1 = head
+#         p2 = head
         
-        for i in range(n):
-            p2 = p2.next
+#         for i in range(n):
+#             p2 = p2.next
             
-        if p2 is None:
-            head = head.next
-            return head
+#         if p2 is None:
+#             head = head.next
+#             return head
         
-        while p2.next is not None:
-             p2 = p2.next    
-             p1 = p1.next
+#         while p2.next is not None:
+#              p2 = p2.next    
+#              p1 = p1.next
  
-        p1.next = p1.next.next
+#         p1.next = p1.next.next
         
-        return head
+#         return head
  
 # remove Duplicates from  
-# class Solution:
-#    def deleteDuplicates(self, head: Optional[listNode]) -> Optional[listNode]:
-#         # corner cases
-#         if head==None or head.next==None:
-#             return head     
+class Solution:
+   def deleteDuplicates(self, head: Optional[listNode]) -> Optional[listNode]:
+        # corner cases
+        if head==None or head.next==None:
+            return head     
  
-#         curr = head 
-#         while curr!=None and curr.next!=None:
-#              # duplicate found 
-#              if curr.next.val==curr.val:
-#                 curr.next = curr.next.next
-#              else:
-#                 curr = curr.next
+        curr = head 
+        while curr!=None and curr.next!=None:
+             # duplicate found 
+             if curr.next.val==curr.val:
+                curr.next = curr.next.next
+             else:
+                curr = curr.next
  
-#         return head
+        return head
  
 # # remove duplicates from sorted list II
 # class Solution:
