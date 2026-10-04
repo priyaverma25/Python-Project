@@ -876,31 +876,50 @@
 #         return head
  
 # remove Duplicates from  
-class Solution:
-   def deleteDuplicates(self, head: Optional[listNode]) -> Optional[listNode]:
-        # corner cases
-        if head==None or head.next==None:
-            return head     
- 
-        curr = head 
-        while curr!=None and curr.next!=None:
-             # duplicate found 
-             if curr.next.val==curr.val:
-                curr.next = curr.next.next
-             else:
-                curr = curr.next
- 
-        return head
- 
-# # remove duplicates from sorted list II
 # class Solution:
-#     def deleteDuplicates(self, head: Optional[listNode]) -> Optional[listnode]:
+#    def deleteDuplicates(self, head: Optional[listNode]) -> Optional[listNode]:
 #         # corner cases
 #         if head==None or head.next==None:
-#            return head
-#         dummy = listNode(0)
-#         dummy.next = head
-#         curr = dummy
+#             return head     
+ 
+#         curr = head 
+#         while curr!=None and curr.next!=None:
+#              # duplicate found 
+#              if curr.next.val==curr.val:
+#                 curr.next = curr.next.next
+#              else:
+#                 curr = curr.next
+ 
+#         return head
+ 
+# # remove duplicates from sorted list II
+
+class Solution:
+    def deleteDuplicates(self, head: ListNode | None) -> ListNode | None:
+        
+        # corner cases
+        if head is None or head.next is None:
+           return head
+   
+        dummy = ListNode(0)
+        dummy.next = head
+        
+        curr = dummy
+        
+        while curr.next and curr.next.next:
+                        
+                    if curr.next.val == curr.next.next.val:
+                          
+                        duplicate = curr.next.val
+                        
+                        while curr.next and curr.next.val == duplicate:
+                                
+                            curr.next = curr.next.next
+                    
+                    else:
+                        curr = curr.next                      
+                
+        return dummy.next
         
         
 # reverse linked list
