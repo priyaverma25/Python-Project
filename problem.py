@@ -894,37 +894,56 @@
  
 # # remove duplicates from sorted list II
 
-class Solution:
-    def deleteDuplicates(self, head: ListNode | None) -> ListNode | None:
+# class Solution:
+#     def deleteDuplicates(self, head: ListNode | None) -> ListNode | None:
         
-        # corner cases
-        if head is None or head.next is None:
-           return head
+#         # corner cases
+#         if head is None or head.next is None:
+#            return head
    
-        dummy = ListNode(0)
-        dummy.next = head
+#         dummy = ListNode(0)
+#         dummy.next = head
         
-        curr = dummy
+#         curr = dummy
         
-        while curr.next and curr.next.next:
+#         while curr.next and curr.next.next:
                         
-                    if curr.next.val == curr.next.next.val:
+#                     if curr.next.val == curr.next.next.val:
                           
-                        duplicate = curr.next.val
+#                         duplicate = curr.next.val
                         
-                        while curr.next and curr.next.val == duplicate:
+#                         while curr.next and curr.next.val == duplicate:
                                 
-                            curr.next = curr.next.next
+#                             curr.next = curr.next.next
                     
-                    else:
-                        curr = curr.next                      
+#                     else:
+#                         curr = curr.next                      
                 
-        return dummy.next
+#         return dummy.next
         
         
 # reverse linked list
-# class Solution:
-#   def reversllist(self, head: Optional[listNode]) -> Optional[listNode]:
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def reverseList(self, head: ListNode | None) -> ListNode | None:
+        
+        prev = None
+        curr = head
+
+        while curr:
+            next_node = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next_node
+
+        return prev
+
+
  
         
 #  Problem 6: Rotate List        
