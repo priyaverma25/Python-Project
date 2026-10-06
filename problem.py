@@ -929,19 +929,38 @@
 #         self.val = val
 #         self.next = next
 
-class Solution:
-    def reverseList(self, head: ListNode | None) -> ListNode | None:
+# class Solution:
+#     def reverseList(self, head: ListNode | None) -> ListNode | None:
         
-        prev = None
-        curr = head
+#         prev = None
+#         curr = head
 
-        while curr:
-            next_node = curr.next
-            curr.next = prev
-            prev = curr
-            curr = next_node
+#         while curr:
+#             next_node = curr.next
+#             curr.next = prev
+#             prev = curr
+#             curr = next_node
 
-        return prev
+#         return prev
+
+# Reverse linked list II
+class Solution:
+    def reverseBetween(self, head, left, right):
+        dummy = ListNode(0, head)
+        prev = dummy
+
+        for _ in range(left - 1):
+            prev = prev.next
+
+        curr = prev.next
+
+        for _ in range(right - left):
+            temp = curr.next
+            curr.next = temp.next
+            temp.next = prev.next
+            prev.next = temp
+
+        return dummy.next
 
 
  
