@@ -944,28 +944,60 @@
 #         return prev
 
 # Reverse linked list II
-class Solution:
-    def reverseBetween(self, head, left, right):
-        dummy = ListNode(0, head)
-        prev = dummy
+# class Solution:
+#     def reverseBetween(self, head, left, right):
+#         dummy = ListNode(0, head)
+#         prev = dummy
 
-        for _ in range(left - 1):
-            prev = prev.next
+#         for _ in range(left - 1):
+#             prev = prev.next
 
-        curr = prev.next
+#         curr = prev.next
 
-        for _ in range(right - left):
-            temp = curr.next
-            curr.next = temp.next
-            temp.next = prev.next
-            prev.next = temp
+#         for _ in range(right - left):
+#             temp = curr.next
+#             curr.next = temp.next
+#             temp.next = prev.next
+#             prev.next = temp
 
-        return dummy.next
+#         return dummy.next
 
 
  
         
-#  Problem 6: Rotate List        
+#  Problem 6: Rotate List    
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def rotateRight(self, head, k):
+        if not head or not head.next:
+            return head
+
+        # length
+        n = 0
+        curr = head
+        while curr:
+            n += 1
+            curr = curr.next
+
+        k = k % n
+
+        for _ in range(k):
+            prev = None
+            curr = head
+
+            while curr.next:
+                prev = curr
+                curr = curr.next
+
+            prev.next = None
+            curr.next = head
+            head = curr
+
+        return head
         
 #  Problem 7: Intersection of Two Linked Lists 
  
