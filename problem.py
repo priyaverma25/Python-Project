@@ -971,42 +971,62 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-class Solution:
-    def rotateRight(self, head, k):
-        if not head or not head.next:
-            return head
+# class Solution:
+#     def rotateRight(self, head, k):
+#         if not head or not head.next:
+#             return head
 
-        # length
-        n = 0
-        curr = head
-        while curr:
-            n += 1
-            curr = curr.next
+#         # length
+#         n = 0
+#         curr = head
+#         while curr:
+#             n += 1
+#             curr = curr.next
 
-        k = k % n
+        # k = k % n
 
-        for _ in range(k):
-            prev = None
-            curr = head
+        # for _ in range(k):
+        #     prev = None
+        #     curr = head
 
-            while curr.next:
-                prev = curr
-                curr = curr.next
+        #     while curr.next:
+        #         prev = curr
+        #         curr = curr.next
 
-            prev.next = None
-            curr.next = head
-            head = curr
+        #     prev.next = None
+        #     curr.next = head
+        #     head = curr
 
-        return head
+        # return head
         
 #  Problem 7: Intersection of Two Linked Lists 
+class Solution:
+    def getIntersectionNode(self, headA, headB):
+
+        pA = headA
+        pB = headB
+
+        while pA != pB:
+
+            if pA:
+                pA = pA.next
+            else:
+                pA = headB
+
+            if pB:
+                pB = pB.next
+            else:
+                pB = headA
+
+        return pA
  
 #  Problem 8: Add Two Numbers
 
 # Problem 9: Linked List Cycle 
  
-# Problem 10: Linked List Cycle II 
- 
+# Problem 10: Linked List Cycle II
+# linked list cycle 
+# linked list cycle II 
  
  
  
