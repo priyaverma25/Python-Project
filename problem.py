@@ -1000,28 +1000,50 @@
         # return head
         
 #  Problem 7: Intersection of Two Linked Lists 
-class Solution:
-    def getIntersectionNode(self, headA, headB):
+# class Solution:
+#     def getIntersectionNode(self, headA, headB):
 
-        pA = headA
-        pB = headB
+#         pA = headA
+#         pB = headB
 
-        while pA != pB:
+#         while pA != pB:
 
-            if pA:
-                pA = pA.next
-            else:
-                pA = headB
+#             if pA:
+#                 pA = pA.next
+#             else:
+#                 pA = headB
 
-            if pB:
-                pB = pB.next
-            else:
-                pB = headA
+#             if pB:
+#                 pB = pB.next
+#             else:
+#                 pB = headA
 
-        return pA
+#         return pA
  
 #  Problem 8: Add Two Numbers
+class Solution:
+    def addTwoNumbers(self, l1, l2):
+        dummy = ListNode(0)
+        curr = dummy
+        carry = 0
 
+        while l1 or l2 or carry:
+            x = l1.val if l1 else 0
+            y = l2.val if l2 else 0
+
+            total = x + y + carry
+            carry = total // 10
+
+            curr.next = ListNode(total % 10)
+            curr = curr.next
+
+            if l1:
+                l1 = l1.next
+            if l2:
+                l2 = l2.next
+
+        return dummy.next
+#  problem 9: add two numbersII
 # Problem 9: Linked List Cycle 
  
 # Problem 10: Linked List Cycle II
