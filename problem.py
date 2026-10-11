@@ -1021,27 +1021,74 @@
 #         return pA
  
 #  Problem 8: Add Two Numbers
-class Solution:
-    def addTwoNumbers(self, l1, l2):
-        dummy = ListNode(0)
-        curr = dummy
-        carry = 0
+# class Solution:
+#     def addTwoNumbers(self, l1, l2):
+#         dummy = ListNode(0)
+#         curr = dummy
+#         carry = 0
 
-        while l1 or l2 or carry:
-            a = l1.val if l1 else 0
-            b = l2.val if l2 else 0
-            s = a + b + carry
+#         while l1 or l2 or carry:
+#             a = l1.val if l1 else 0
+#             b = l2.val if l2 else 0
+#             s = a + b + carry
 
-            carry = s // 10
-            curr.next = ListNode(s % 10)
-            curr = curr.next
+#             carry = s // 10
+#             curr.next = ListNode(s % 10)
+#             curr = curr.next
 
-            if l1: l1 = l1.next
-            if l2: l2 = l2.next
+#             if l1: l1 = l1.next
+#             if l2: l2 = l2.next
 
-        return dummy.next
+#         return dummy.next
 
 #  problem 9: add two numbersII
+# class Solution:
+#     def addTwoNumbers(self, l1, l2):
+#         s1 = []
+#         s2 = []
+
+#         while l1:
+#             s1.append(l1.val)
+#             l1 = l1.next
+
+#         while l2:
+#             s2.append(l2.val)
+#             l2 = l2.next
+
+#         carry = 0
+#         head = None
+
+#         while s1 or s2 or carry:
+#             a = s1.pop() if s1 else 0
+#             b = s2.pop() if s2 else 0
+
+#             total = a + b + carry
+#             carry = total // 10
+#             digit = total % 10
+
+#             new_node = ListNode(digit)
+#             new_node.next = head
+#             head = new_node
+
+#         return head
+
+# Fibonacci Number
+class Solution:
+    def isThreeFibonacciSum(self, n: int) -> bool:
+        a, b = 0, 1
+
+        while True:
+            c = a + b
+
+            if a + b + c == n:
+                return True
+
+            if a + b + c > n:
+                return False
+
+            a, b = b, c
+            
+            
 # Problem 9: Linked List Cycle 
  
 # Problem 10: Linked List Cycle II
