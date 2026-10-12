@@ -1090,7 +1090,20 @@ class Solution:
             
             
 # Problem 9: Linked List Cycle 
- 
+class Solution:
+    def hasCycle(self, head):
+        slow = fast = head
+
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+
+            if slow == fast:
+                return True
+
+        return False 
+
+
 # Problem 10: Linked List Cycle II
 # linked list cycle 
 # linked list cycle II 
