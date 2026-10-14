@@ -1073,59 +1073,68 @@
 #         return head
 
 # Fibonacci Number
-class Solution:
-    def isThreeFibonacciSum(self, n: int) -> bool:
-        a, b = 0, 1
+# class Solution:
+#     def isThreeFibonacciSum(self, n: int) -> bool:
+#         a, b = 0, 1
 
-        while True:
-            c = a + b
+#         while True:
+#             c = a + b
 
-            if a + b + c == n:
-                return True
+#             if a + b + c == n:
+#                 return True
 
-            if a + b + c > n:
-                return False
+#             if a + b + c > n:
+#                 return False
 
-            a, b = b, c
+#             a, b = b, c
             
             
 # Problem 9: Linked List Cycle 
-class Solution:
-    def hasCycle(self, head):
-        slow = fast = head
+# class Solution:
+#     def hasCycle(self, head):
+#         slow = fast = head
 
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
+#         while fast and fast.next:
+#             slow = slow.next
+#             fast = fast.next.next
 
-            if slow == fast:
-                return True
+#             if slow == fast:
+#                 return True
 
-        return False 
+#         return False 
 
 
 # Problem 10: Linked List Cycle II
+# class Solution:
+#     def detectCycle(self, head):
+#         slow = fast = head
+
+#         while fast and fast.next:
+#             slow = slow.next
+#             fast = fast.next.next
+
+#             if slow == fast:
+#                 slow = head
+#                 while slow != fast:
+#                     slow = slow.next
+#                     fast = fast.next
+#                 return slow
+
+#         return None
+
+# Palindrome Linked List
+
 class Solution:
-    def detectCycle(self, head):
-        slow = fast = head
+    def isPalindrome(self, head):
+        vals = []
 
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
+        while head:
+            vals.append(head.val)
+            head = head.next
 
-            if slow == fast:
-                slow = head
-                while slow != fast:
-                    slow = slow.next
-                    fast = fast.next
-                return slow
-
-        return None
-
-# linked list cycle 
-# linked list cycle II 
+        return vals == vals[::-1]
  
- 
+
  
  
  
