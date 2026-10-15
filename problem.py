@@ -1124,18 +1124,30 @@
 
 # Palindrome Linked List
 
+# class Solution:
+#     def isPalindrome(self, head):
+#         vals = []
+
+#         while head:
+#             vals.append(head.val)
+#             head = head.next
+
+#         return vals == vals[::-1]
+ 
+
+# Can make Arithmetic Progression from Sequence
 class Solution:
-    def isPalindrome(self, head):
-        vals = []
+    def canMakeArithmeticProgression(self, arr: list[int]) -> bool:
+        arr . sort()
 
-        while head:
-            vals.append(head.val)
-            head = head.next
+        diff = arr[1] - arr[0]
 
-        return vals == vals[::-1]
- 
+        for i in range(2, len(arr)):
+            if arr[i] - arr[i - 1] != diff:
 
- 
+                return False
+        
+        return True         
  
  
  
