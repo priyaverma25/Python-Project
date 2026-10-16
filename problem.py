@@ -1136,20 +1136,26 @@
  
 
 # Can make Arithmetic Progression from Sequence
-class Solution:
-    def canMakeArithmeticProgression(self, arr: list[int]) -> bool:
-        arr . sort()
+# class Solution:
+#     def canMakeArithmeticProgression(self, arr: list[int]) -> bool:
+#         arr . sort()
 
-        diff = arr[1] - arr[0]
+#         diff = arr[1] - arr[0]
 
-        for i in range(2, len(arr)):
-            if arr[i] - arr[i - 1] != diff:
+#         for i in range(2, len(arr)):
+#             if arr[i] - arr[i - 1] != diff:
 
-                return False
+#                 return False
         
-        return True         
+#         return True         
  
- 
+#  Combine Two Tables
+
+SELECT p.firstName, p.lastName, a.city, a.state
+FROM Person p
+LEFT JOIN Address a
+ON p.personId = a.personId;
+
  
  
  
