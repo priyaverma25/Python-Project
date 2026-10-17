@@ -1151,14 +1151,23 @@
  
 #  Combine Two Tables
 
-SELECT p.firstName, p.lastName, a.city, a.state
-FROM Person p
-LEFT JOIN Address a
-ON p.personId = a.personId;
+# SELECT p.firstName, p.lastName, a.city, a.state
+# FROM Person p
+# LEFT JOIN Address a
+# ON p.personId = a.personId;
 
  
- 
- 
+# Find the Pivot Integer 
+class Solution:
+    def pivotInteger(self, n: int) -> int:
+        for x in range(1, n + 1):
+            left = sum(range(1, x + 1))
+            right = sum(range(x, n + 1))
+
+            if left == right:
+                return x
+
+        return -1 
  
  
  
