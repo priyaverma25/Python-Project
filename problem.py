@@ -1158,17 +1158,28 @@
 
  
 # Find the Pivot Integer 
-class Solution:
-    def pivotInteger(self, n: int) -> int:
-        for x in range(1, n + 1):
-            left = sum(range(1, x + 1))
-            right = sum(range(x, n + 1))
+# class Solution:
+#     def pivotInteger(self, n: int) -> int:
+#         for x in range(1, n + 1):
+#             left = sum(range(1, x + 1))
+#             right = sum(range(x, n + 1))
 
-            if left == right:
-                return x
+#             if left == right:
+#                 return x
 
-        return -1 
+#         return -1 
  
+# Ugly Number
+class Solution:
+    def isUgly(self, n: int) -> bool:
+        if n <= 0:
+            return False
+
+        for x in [2, 3, 5]:
+            while n % x == 0:
+                n = n // x
+
+        return n == 1
  
  
  
