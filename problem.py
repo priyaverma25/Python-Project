@@ -1181,8 +1181,41 @@ class Solution:
 
         return n == 1
  
+# Sum of Sortable Integers 
+
+from typing import List
+
+class Solution:
+    def sortableIntegers(self, nums: List[int]) -> int:
+        n = len(nums)
+        target = sorted(nums)
+        ans = 0
+
+        for k in range(1, n + 1):
+            if n % k != 0:
+                continue
+
+            valid = True
+
+            for i in range(0, n, k):
+                a = nums[i:i + k]
+                b = target[i:i + k]
+
+                if len(a) != len(b):
+                    valid = False
+                    break
+
+                doubled = a + a
+                if not any(doubled[j:j + k] == b for j in range(k)):
+                    valid = False
+                    break
+
+            if valid:
+                ans += k
+
+        return ans
  
- 
+
  
  
  
