@@ -1169,54 +1169,70 @@
 
 #         return -1 
  
-# Ugly Number
-class Solution:
-    def isUgly(self, n: int) -> bool:
-        if n <= 0:
-            return False
+# # Ugly Number
+# class Solution:
+#     def isUgly(self, n: int) -> bool:
+#         if n <= 0:
+#             return False
 
-        for x in [2, 3, 5]:
-            while n % x == 0:
-                n = n // x
+#         for x in [2, 3, 5]:
+#             while n % x == 0:
+#                 n = n // x
 
-        return n == 1
+#         return n == 1
  
 # Sum of Sortable Integers 
 
-from typing import List
+# from typing import List
 
+# class Solution:
+#     def sortableIntegers(self, nums: List[int]) -> int:
+#         n = len(nums)
+#         target = sorted(nums)
+#         ans = 0
+
+#         for k in range(1, n + 1):
+#             if n % k != 0:
+#                 continue
+
+        #     valid = True
+
+        #     for i in range(0, n, k):
+        #         a = nums[i:i + k]
+        #         b = target[i:i + k]
+
+        #         if len(a) != len(b):
+        #             valid = False
+        #             break
+
+        #         doubled = a + a
+        #         if not any(doubled[j:j + k] == b for j in range(k)):
+        #             valid = False
+        #             break
+
+        #     if valid:
+        #         ans += k
+
+        # return ans
+ 
+
+# Smallest Integer Divisible by K 
 class Solution:
-    def sortableIntegers(self, nums: List[int]) -> int:
-        n = len(nums)
-        target = sorted(nums)
-        ans = 0
+    def smallestRepunitDivByK(self, k: int) -> int:
+        
 
-        for k in range(1, n + 1):
-            if n % k != 0:
-                continue
+        if k % 2 == 0 or k % 5 == 0:
+            return -1
 
-            valid = True
+        remainder = 0
 
-            for i in range(0, n, k):
-                a = nums[i:i + k]
-                b = target[i:i + k]
+        for length in range(1, k + 1):
+            remainder = (remainder * 10 + 1) % k
 
-                if len(a) != len(b):
-                    valid = False
-                    break
+            if remainder == 0:
+                return length
 
-                doubled = a + a
-                if not any(doubled[j:j + k] == b for j in range(k)):
-                    valid = False
-                    break
-
-            if valid:
-                ans += k
-
-        return ans
- 
-
- 
+        return -1
  
  
  
