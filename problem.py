@@ -1217,24 +1217,43 @@
  
 
 # Smallest Integer Divisible by K 
-class Solution:
-    def smallestRepunitDivByK(self, k: int) -> int:
+# class Solution:
+#     def smallestRepunitDivByK(self, k: int) -> int:
         
 
-        if k % 2 == 0 or k % 5 == 0:
-            return -1
+#         if k % 2 == 0 or k % 5 == 0:
+#             return -1
 
-        remainder = 0
+#         remainder = 0
 
-        for length in range(1, k + 1):
-            remainder = (remainder * 10 + 1) % k
+#         for length in range(1, k + 1):
+#             remainder = (remainder * 10 + 1) % k
 
-            if remainder == 0:
-                return length
+#             if remainder == 0:
+#                 return length
 
-        return -1
+#         return -1
  
  
+# Self Dividing Numbers
+class Solution:
+    def selfDividingNumbers(self, left: int, right: int) -> list[int]:
+        result = []
+
+        for num in range(left, right + 1):
+            temp = num
+
+            while temp > 0:
+                digit = temp % 10
+
+                if digit == 0 or num % digit != 0:
+                    break
+
+                temp //= 10
+            else:
+                result.append(num)
+
+        return result
  
  
  
