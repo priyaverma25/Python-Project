@@ -1236,27 +1236,43 @@
  
  
 # Self Dividing Numbers
+# class Solution:
+#     def selfDividingNumbers(self, left: int, right: int) -> list[int]:
+#         result = []
+
+#         for num in range(left, right + 1):
+#             temp = num
+
+#             while temp > 0:
+#                 digit = temp % 10
+
+#                 if digit == 0 or num % digit != 0:
+#                     break
+
+#                 temp //= 10
+#             else:
+#                 result.append(num)
+
+#         return result
+ 
+ 
+# Permutation Sequence 
+
 class Solution:
-    def selfDividingNumbers(self, left: int, right: int) -> list[int]:
-        result = []
+    def getPermutation(self, n: int, k: int) -> str:
+        nums = [str(i) for i in range(1, n + 1)]
+        k -= 1
+        result = ""
 
-        for num in range(left, right + 1):
-            temp = num
+        import math
 
-            while temp > 0:
-                digit = temp % 10
-
-                if digit == 0 or num % digit != 0:
-                    break
-
-                temp //= 10
-            else:
-                result.append(num)
+        while nums:
+            fact = math.factorial(len(nums) - 1)
+            index = k // fact
+            result += nums.pop(index)
+            k %= fact
 
         return result
- 
- 
- 
  
  
  
