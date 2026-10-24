@@ -1258,27 +1258,50 @@
  
 # Permutation Sequence 
 
+# class Solution:
+#     def getPermutation(self, n: int, k: int) -> str:
+#         nums = [str(i) for i in range(1, n + 1)]
+#         k -= 1
+#         result = ""
+
+#         import math
+
+#         while nums:
+#             fact = math.factorial(len(nums) - 1)
+#             index = k // fact
+#             result += nums.pop(index)
+#             k %= fact
+
+#         return result
+ 
+#  Difference Between Peaks and Valleys
 class Solution:
-    def getPermutation(self, n: int, k: int) -> str:
-        nums = [str(i) for i in range(1, n + 1)]
-        k -= 1
-        result = ""
+    def peakValleyDifference(self, nums: list[int]) -> int:
+        peaks = 0
+        valleys = 0
 
-        import math
+        for i in range(1, len(nums) - 1):
+            if nums[i] > nums[i - 1] and nums[i] > nums[i + 1]:
+                peaks += nums[i]
 
-        while nums:
-            fact = math.factorial(len(nums) - 1)
-            index = k // fact
-            result += nums.pop(index)
-            k %= fact
+            elif nums[i] < nums[i - 1] and nums[i] < nums[i + 1]:
+                valleys += nums[i]
 
-        return result
+        return peaks - valleys         
  
- 
- 
- 
- 
- 
+# Count Magical Substring Pairs I 
+class Solution:
+    def countSubarrays(self, nums: list[int], minK: int, maxK: int) -> int:
+        count = 0
+        left = 0
+
+        for right in range(len(nums)):
+            if nums[right] < minK or nums[right] > maxK:
+                left = right + 1
+            else:
+                count += right - left + 1
+
+        return count 
  
  
  
