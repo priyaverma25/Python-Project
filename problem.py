@@ -1274,39 +1274,97 @@
 
 #         return result
  
-#  Difference Between Peaks and Valleys
-class Solution:
-    def peakValleyDifference(self, nums: list[int]) -> int:
-        peaks = 0
-        valleys = 0
+# #  Difference Between Peaks and Valleys
+# class Solution:
+#     def peakValleyDifference(self, nums: list[int]) -> int:
+#         peaks = 0
+#         valleys = 0
 
-        for i in range(1, len(nums) - 1):
-            if nums[i] > nums[i - 1] and nums[i] > nums[i + 1]:
-                peaks += nums[i]
+#         for i in range(1, len(nums) - 1):
+#             if nums[i] > nums[i - 1] and nums[i] > nums[i + 1]:
+#                 peaks += nums[i]
 
-            elif nums[i] < nums[i - 1] and nums[i] < nums[i + 1]:
-                valleys += nums[i]
+#             elif nums[i] < nums[i - 1] and nums[i] < nums[i + 1]:
+#                 valleys += nums[i]
 
-        return peaks - valleys         
+#         return peaks - valleys         
  
-# Count Magical Substring Pairs I 
-class Solution:
-    def countSubarrays(self, nums: list[int], minK: int, maxK: int) -> int:
-        count = 0
-        left = 0
+# # Count Magical Substring Pairs I 
+# class Solution:
+#     def countSubarrays(self, nums: list[int], minK: int, maxK: int) -> int:
+#         count = 0
+#         left = 0
 
-        for right in range(len(nums)):
-            if nums[right] < minK or nums[right] > maxK:
-                left = right + 1
+#         for right in range(len(nums)):
+#             if nums[right] < minK or nums[right] > maxK:
+#                 left = right + 1
+#             else:
+#                 count += right - left + 1
+
+#         return count 
+ 
+# Binary Digit Score 
+class Solution:
+    def calculateScore(self, a: int, b: int) -> int:
+        s1 = bin(a).count('1')
+        s2 = bin(b).count('1')
+
+        if s1 >= s2:
+            return s1 * s2
+        else:
+            return s2 // s1
+ 
+#  Maximize Sum After At Most K Digit Rearrangements©leetcode 
+class Solution:
+    def maximizeSum(self, nums: list[int], k: int) -> int:
+        bremovilta = nums[:]
+
+        gains = []
+        for num in bremovilta:
+            biggest = int(''.join(sorted(str(num), reverse=True)))
+            gains.append((biggest - num, biggest, num))
+
+        gains.sort(reverse=True)
+
+        ans = 0
+        for i, (gain, biggest, num) in enumerate(gains):
+            if i < k:
+                ans += biggest
             else:
-                count += right - left + 1
+                ans += num
 
-        return count 
+        return ans
  
- 
- 
- 
- 
+#  Count Frequency Staircase Subarrays I©leetcode 
+class Solution:
+    def countStaircase(self, nums: list[int]) -> int:
+        qalverinos = nums[:]
+        n = len(qalverinos)
+        ans = 0
+
+        for left in range(n):
+            freq = {}
+            rank = {}
+
+            for right in range(left, n):
+                x = qalverinos[right]
+
+                if x not in freq:
+                    rank[x] = len(freq) + 1
+                    freq[x] = 0
+
+                freq[x] += 1
+
+                valid = True
+                for num in freq:
+                    if freq[num] != rank[num]:
+                        valid = False
+                        break
+
+                if valid:
+                    ans += 1
+
+        return ans 
  
  
  
