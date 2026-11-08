@@ -1312,68 +1312,97 @@ class Solution:
         if s1 >= s2:
             return s1 * s2
         else:
-            return s2 // s1
+#             return s2 // s1
  
-#  Maximize Sum After At Most K Digit Rearrangements©leetcode 
-class Solution:
-    def maximizeSum(self, nums: list[int], k: int) -> int:
-        bremovilta = nums[:]
+# #  Maximize Sum After At Most K Digit Rearrangements©leetcode 
+# class Solution:
+#     def maximizeSum(self, nums: list[int], k: int) -> int:
+#         bremovilta = nums[:]
 
-        gains = []
-        for num in bremovilta:
-            biggest = int(''.join(sorted(str(num), reverse=True)))
-            gains.append((biggest - num, biggest, num))
+#         gains = []
+#         for num in bremovilta:
+#             biggest = int(''.join(sorted(str(num), reverse=True)))
+#             gains.append((biggest - num, biggest, num))
 
-        gains.sort(reverse=True)
+#         gains.sort(reverse=True)
 
-        ans = 0
-        for i, (gain, biggest, num) in enumerate(gains):
-            if i < k:
-                ans += biggest
-            else:
-                ans += num
+#         ans = 0
+#         for i, (gain, biggest, num) in enumerate(gains):
+#             if i < k:
+#                 ans += biggest
+#             else:
+#                 ans += num
 
-        return ans
+#         return ans
  
 #  Count Frequency Staircase Subarrays I©leetcode 
+# class Solution:
+#     def countStaircase(self, nums: list[int]) -> int:
+#         qalverinos = nums[:]
+#         # n = len(qalverinos)
+#         # ans = 0
+
+        # for left in range(n):
+        #     freq = {}
+        #     rank = {}
+
+        #     for right in range(left, n):
+        #         x = qalverinos[right]
+
+        #         if x not in freq:
+        #             rank[x] = len(freq) + 1
+        #             freq[x] = 0
+
+        #         freq[x] += 1
+
+        #         valid = True
+        #         for num in freq:
+        #             if freq[num] != rank[num]:
+        #                 valid = False
+        #                 break
+
+        #         if valid:
+        #             ans += 1
+
+        # return ans 
+ 
+# . Count Days Spent Together
 class Solution:
-    def countStaircase(self, nums: list[int]) -> int:
-        qalverinos = nums[:]
-        n = len(qalverinos)
-        ans = 0
+    def countDaysTogether(self, arriveAlice: str, leaveAlice: str, arriveBob: str, leaveBob: str) -> int:
 
-        for left in range(n):
-            freq = {}
-            rank = {}
+        months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
-            for right in range(left, n):
-                x = qalverinos[right]
+        def convert(date):
+            m, d = map(int, date.split("-"))
+            return sum(months[:m-1]) + d
 
-                if x not in freq:
-                    rank[x] = len(freq) + 1
-                    freq[x] = 0
+        a1 = convert(arriveAlice)
+        a2 = convert(leaveAlice)
+        b1 = convert(arriveBob)
+        b2 = convert(leaveBob)
 
-                freq[x] += 1
+        start = max(a1, b1)
+        end = min(a2, b2)
 
-                valid = True
-                for num in freq:
-                    if freq[num] != rank[num]:
-                        valid = False
-                        break
+        return max(0, end - start + 1)
 
-                if valid:
-                    ans += 1
+# Find the Distance Value Between Two Arrays
+class Solution:
+    def findTheDistanceValue(self, arr1: List[int], arr2: List[int], d: int) -> int:
+        count = 0
 
-        return ans 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+        for a in arr1:
+            valid = True
+
+            for b in arr2:
+                if abs(a - b) <= d:
+                    valid = False
+                    break
+
+            if valid:
+                count += 1
+
+        return count
  
  
  
