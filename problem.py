@@ -1367,52 +1367,88 @@ class Solution:
         # return ans 
  
 # . Count Days Spent Together
-class Solution:
-    def countDaysTogether(self, arriveAlice: str, leaveAlice: str, arriveBob: str, leaveBob: str) -> int:
+# class Solution:
+#     def countDaysTogether(self, arriveAlice: str, leaveAlice: str, arriveBob: str, leaveBob: str) -> int:
 
-        months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+#         months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
-        def convert(date):
-            m, d = map(int, date.split("-"))
-            return sum(months[:m-1]) + d
+#         def convert(date):
+#             m, d = map(int, date.split("-"))
+#             return sum(months[:m-1]) + d
 
-        a1 = convert(arriveAlice)
-        a2 = convert(leaveAlice)
-        b1 = convert(arriveBob)
-        b2 = convert(leaveBob)
+#         a1 = convert(arriveAlice)
+#         a2 = convert(leaveAlice)
+#         b1 = convert(arriveBob)
+#         b2 = convert(leaveBob)
 
-        start = max(a1, b1)
-        end = min(a2, b2)
+#         start = max(a1, b1)
+#         end = min(a2, b2)
 
-        return max(0, end - start + 1)
+#         return max(0, end - start + 1)
 
-# Find the Distance Value Between Two Arrays
-class Solution:
-    def findTheDistanceValue(self, arr1: List[int], arr2: List[int], d: int) -> int:
-        count = 0
+# # Find the Distance Value Between Two Arrays
+# class Solution:
+#     def findTheDistanceValue(self, arr1: List[int], arr2: List[int], d: int) -> int:
+#         count = 0
 
-        for a in arr1:
-            valid = True
+#         for a in arr1:
+#             valid = True
 
-            for b in arr2:
-                if abs(a - b) <= d:
-                    valid = False
-                    break
+#             for b in arr2:
+#                 if abs(a - b) <= d:
+#                     valid = False
+#                     break
 
-            if valid:
-                count += 1
+#             if valid:
+#                 count += 1
 
-        return count
+#         return count
+
+# Investments in 2016
+# SELECT ROUND(SUM(tiv_2016), 2) AS tiv_2016
+# FROM Insurance
+# WHERE tiv_2015 IN (
+#     SELECT tiv_2015
+#     FROM Insurance
+#     GROUP BY tiv_2015
+#     HAVING COUNT(*) > 1
+# )
+# AND (lat, lon) IN (
+#     SELECT lat, lon
+#     FROM Insurance
+#     GROUP BY lat, lon
+#     HAVING COUNT(*) = 1
+# );
  
  
+# SELECT ROUND(SUM(tiv_2016), 2) AS tiv_2016
+# FROM Insurance
+# WHERE tiv_2015 IN (
+#     SELECT tiv_2015
+#     FROM Insurance
+#     GROUP BY tiv_2015
+#     HAVING COUNT(*) > 1
+# )
+# AND (lat, lon) IN (
+#     SELECT lat, lon
+#     FROM Insurance
+#     GROUP BY lat, lon
+#     HAVING COUNT(*) = 1
+# );
  
- 
- 
- 
- 
- 
- 
- 
+# Department Highest Salary 
+SELECT 
+    d.name AS Department,
+    e.name AS Employee,
+    e.salary AS Salary
+FROM Employee e
+JOIN Department d
+ON e.departmentId = d.id
+WHERE (e.departmentId, e.salary) IN (
+    SELECT departmentId, MAX(salary)
+    FROM Employee
+    GROUP BY departmentId
+); 
  
  
  
