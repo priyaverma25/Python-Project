@@ -1437,21 +1437,25 @@ class Solution:
 # );
  
 # Department Highest Salary 
-SELECT 
-    d.name AS Department,
-    e.name AS Employee,
-    e.salary AS Salary
-FROM Employee e
-JOIN Department d
-ON e.departmentId = d.id
-WHERE (e.departmentId, e.salary) IN (
-    SELECT departmentId, MAX(salary)
-    FROM Employee
-    GROUP BY departmentId
-); 
+# SELECT 
+#     d.name AS Department,
+#     e.name AS Employee,
+#     e.salary AS Salary
+# FROM Employee e
+# JOIN Department d
+# ON e.departmentId = d.id
+# WHERE (e.departmentId, e.salary) IN (
+#     SELECT departmentId, MAX(salary)
+#     FROM Employee
+#     GROUP BY departmentId
+# ); 
  
- 
- 
+# Product Sales Analysis III 
+select 
+product_id ,
+year as first_year , quantity , price
+from Sales
+where ((product_id, year) IN (select product_id, min(year) from sales group by product-id)) 
  
  
  
