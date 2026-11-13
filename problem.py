@@ -1459,23 +1459,49 @@ class Solution:
  
 # Pascal's Triangle 
 
-class Solution:
-    def generate(self, numRows: int) -> List[List[int]]:
+# class Solution:
+#     def generate(self, numRows: int) -> List[List[int]]:
 
-        result = []
+#         result = []
 
-        for i in range(numRows):
+#         for i in range(numRows):
 
-            row = [1] * (i + 1)
+#             row = [1] * (i + 1)
 
-            for j in range(1, i):
+#             for j in range(1, i):
 
-                row[j] = result[i-1][j-1] + result[i-1][j]
+#                 row[j] = result[i-1][j-1] + result[i-1][j]
 
-            result.append(row)
+#             result.append(row)
 
-        return result
+#         return result
  
+# Number of Ways to Rearrange Sticks With K Sticks Visible
+class Solution {
+public:
+    int rearrangeSticks(int n, int k) {
+        const int MOD = 1e9 + 7;
+
+        vector<vector<long long>> dp(
+            n + 1, vector<long long>(k + 1, 0)
+        );
+
+        dp[0][0] = 1;
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= k; j++) {
+
+                dp[i][j] = (
+                    dp[i-1][j-1] +
+                    (i-1) * dp[i-1][j]
+                ) % MOD;
+
+            }
+        }
+
+        return dp[n][k];
+    }
+};
  
  
  
