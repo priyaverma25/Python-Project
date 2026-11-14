@@ -1502,9 +1502,43 @@ public:
         return dp[n][k];
     }
 };
+# Number of Ways to Rearrange Sticks With K Sticks Visible
+# class Solution:
+    # def rearrangeSticks(self, n: int, k: int) -> int:
+
+    #     MOD = 10**9 + 7
+
+    #     dp = [[0] * (k + 1) for _ in range(n + 1)]
+
+    #     dp[0][0] = 1
+
+    #     for i in range(1, n + 1):
+    #         for j in range(1, k + 1):
+
+    #             dp[i][j] = (
+    #                 dp[i-1][j-1] +
+    #                 (i-1) * dp[i-1][j]
+    #             ) % MOD
+
+    #     return dp[n][k]
  
- 
- 
+# Count Primes 
+class Solution:
+    def countPrimes(self, n: int) -> int:
+
+        if n <= 2:
+            return 0
+
+        prime = [True] * n
+        prime[0] = False
+        prime[1] = False
+
+        for i in range(2, int(n ** 0.5) + 1):
+            if prime[i]:
+                for j in range(i * i, n, i):
+                    prime[j] = False
+
+        return sum(prime) 
  
  
  
