@@ -1477,29 +1477,29 @@ class Solution:
 #         return result
  
 # Number of Ways to Rearrange Sticks With K Sticks Visible
-class Solution {
-public:
-    int rearrangeSticks(int n, int k) {
-        const int MOD = 1e9 + 7;
+# class Solution {
+# public:
+#     int rearrangeSticks(int n, int k) {
+#         const int MOD = 1e9 + 7;
 
-        vector<vector<long long>> dp(
-            n + 1, vector<long long>(k + 1, 0)
-        );
+#         vector<vector<long long>> dp(
+#             n + 1, vector<long long>(k + 1, 0)
+#         );
 
-        dp[0][0] = 1;
+#         # dp[0][0] = 1;
 
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= k; j++) {
+        # for (int i = 1; i <= n; i++) {
+        #     for (int j = 1; j <= k; j++) {
 
-                dp[i][j] = (
-                    dp[i-1][j-1] +
-                    (i-1) * dp[i-1][j]
-                ) % MOD;
+        #         dp[i][j] = (
+        #             dp[i-1][j-1] +
+        #             (i-1) * dp[i-1][j]
+        #         ) % MOD;
 
-            }
-        }
+        #     }
+        # }
 
-        return dp[n][k];
+        # return dp[n][k];
     }
 };
 # Number of Ways to Rearrange Sticks With K Sticks Visible
@@ -1542,17 +1542,55 @@ public:
  
  
 # Factorial Trailing Zeroes
+# class Solution:
+#     def trailingZeroes(self, n: int) -> int:
+#         count = 0
+
+        # while n >= 5:
+        #     n = n // 5
+        #     count += n
+
+        # return count
+ 
+# Closest Prime Numbers in Range 
+
+from math import sqrt
+from typing import List
+
 class Solution:
-    def trailingZeroes(self, n: int) -> int:
-        count = 0
+    def closestPrimes(self, left: int, right: int) -> List[int]:
 
-        while n >= 5:
-            n = n // 5
-            count += n
+        def get_primes():
+            prime = [True] * (right + 1)
+            prime[0] = False
+            prime[1] = False
 
-        return count
- 
- 
+            for n in range(2, int(sqrt(right)) + 1):
+                if not prime[n]:
+                    continue
+
+                for m in range(n + n, right + 1, n):
+                    prime[m] = False
+
+            primes = []
+
+            for i in range(len(prime)):
+                if prime[i] and i >= left:
+                    primes.append(i)
+
+            return primes
+
+        primes = get_primes()
+
+        res = [-1, -1]
+        diff = float("inf")
+
+        for i in range(1, len(primes)):
+            if primes[i] - primes[i - 1] < diff:
+                diff = primes[i] - primes[i - 1]
+                res = [primes[i - 1], primes[i]]
+
+        return res
  
  
  
