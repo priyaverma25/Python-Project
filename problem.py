@@ -1554,45 +1554,65 @@ class Solution:
  
 # Closest Prime Numbers in Range 
 
-from math import sqrt
-from typing import List
+# from math import sqrt
+# from typing import List
 
+# class Solution:
+#     def closestPrimes(self, left: int, right: int) -> List[int]:
+
+#         def get_primes():
+#             prime = [True] * (right + 1)
+#             prime[0] = False
+#             prime[1] = False
+
+#             for n in range(2, int(sqrt(right)) + 1):
+#                 if not prime[n]:
+#                     continue
+
+#                 for m in range(n + n, right + 1, n):
+#                     prime[m] = False
+
+#             primes = []
+
+#             for i in range(len(prime)):
+#                 if prime[i] and i >= left:
+#                     primes.append(i)
+
+#             return primes
+
+#         primes = get_primes()
+
+#         res = [-1, -1]
+#         diff = float("inf")
+
+#         for i in range(1, len(primes)):
+#             if primes[i] - primes[i - 1] < diff:
+#                 diff = primes[i] - primes[i - 1]
+#                 res = [primes[i - 1], primes[i]]
+
+#         return res
+ 
+ 
+# Projection Area of 3D Shapes
 class Solution:
-    def closestPrimes(self, left: int, right: int) -> List[int]:
+    def projectionArea(self, grid: List[List[int]]) -> int:
+        n = len(grid)
 
-        def get_primes():
-            prime = [True] * (right + 1)
-            prime[0] = False
-            prime[1] = False
+        top = 0
+        front = 0
+        side = 0
 
-            for n in range(2, int(sqrt(right)) + 1):
-                if not prime[n]:
-                    continue
+        for i in range(n):
+            front += max(grid[i])
 
-                for m in range(n + n, right + 1, n):
-                    prime[m] = False
+            for j in range(n):
+                if grid[i][j] > 0:
+                    top += 1
 
-            primes = []
+        for j in range(n):
+            side += max(grid[i][j] for i in range(n))
 
-            for i in range(len(prime)):
-                if prime[i] and i >= left:
-                    primes.append(i)
-
-            return primes
-
-        primes = get_primes()
-
-        res = [-1, -1]
-        diff = float("inf")
-
-        for i in range(1, len(primes)):
-            if primes[i] - primes[i - 1] < diff:
-                diff = primes[i] - primes[i - 1]
-                res = [primes[i - 1], primes[i]]
-
-        return res
- 
- 
+        return top + front + side
  
  
  
