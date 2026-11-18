@@ -1594,27 +1594,45 @@ class Solution:
  
  
 # Projection Area of 3D Shapes
+# class Solution:
+#     def projectionArea(self, grid: List[List[int]]) -> int:
+#         n = len(grid)
+
+#         top = 0
+#         front = 0
+#         side = 0
+
+#         for i in range(n):
+#             front += max(grid[i])
+
+#             for j in range(n):
+#                 if grid[i][j] > 0:
+#                     top += 1
+
+#         for j in range(n):
+#             side += max(grid[i][j] for i in range(n))
+
+#         return top + front + side
+ 
+ 
+# Reverse Only Letters
 class Solution:
-    def projectionArea(self, grid: List[List[int]]) -> int:
-        n = len(grid)
+    def reverseOnlyLetters(self, s: str) -> str:
+        l, r = 0, len(s) - 1
+        s = list(s)
 
-        top = 0
-        front = 0
-        side = 0
+        while l < r:
+            while l < r and not s[l].isalpha():
+                l += 1
 
-        for i in range(n):
-            front += max(grid[i])
+            while l < r and not s[r].isalpha():
+                r -= 1
 
-            for j in range(n):
-                if grid[i][j] > 0:
-                    top += 1
+            s[l], s[r] = s[r], s[l]
+            l += 1
+            r -= 1
 
-        for j in range(n):
-            side += max(grid[i][j] for i in range(n))
-
-        return top + front + side
- 
- 
+        return "".join(s)
  
  
  
