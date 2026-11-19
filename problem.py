@@ -1500,8 +1500,8 @@ class Solution:
         # }
 
         # return dp[n][k];
-    }
-};
+#     }
+# };
 # Number of Ways to Rearrange Sticks With K Sticks Visible
 # class Solution:
     # def rearrangeSticks(self, n: int, k: int) -> int:
@@ -1616,27 +1616,46 @@ class Solution:
  
  
 # Reverse Only Letters
+# class Solution:
+#     def reverseOnlyLetters(self, s: str) -> str:
+#         l, r = 0, len(s) - 1
+#         s = list(s)
+
+#         while l < r:
+#             while l < r and not s[l].isalpha():
+#                 l += 1
+
+#             while l < r and not s[r].isalpha():
+#                 r -= 1
+
+#             s[l], s[r] = s[r], s[l]
+#             l += 1
+#             r -= 1
+
+#         return "".join(s)
+ 
+#  Climbing Stairs 
 class Solution:
-    def reverseOnlyLetters(self, s: str) -> str:
-        l, r = 0, len(s) - 1
-        s = list(s)
+    def climbStairs(self, n: int) -> int:
+        # a, b = 1, 1
 
-        while l < r:
-            while l < r and not s[l].isalpha():
-                l += 1
+        # for i in range(n):
+        #     a, b = b, a+b
 
-            while l < r and not s[r].isalpha():
-                r -= 1
+        # return a    
 
-            s[l], s[r] = s[r], s[l]
-            l += 1
-            r -= 1
 
-        return "".join(s)
- 
- 
- 
- 
- 
- 
+        if n <= 2:
+            return n
+
+        a = 1
+        b = 2
+
+        for i in range(3, n + 1):
+
+            c = a + b
+            a = b
+            b = c
+        
+        return b         
  
