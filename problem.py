@@ -1635,27 +1635,47 @@ class Solution:
 #         return "".join(s)
  
 #  Climbing Stairs 
-class Solution:
-    def climbStairs(self, n: int) -> int:
-        # a, b = 1, 1
+# class Solution:
+#     def climbStairs(self, n: int) -> int:
+#         # a, b = 1, 1
 
-        # for i in range(n):
-        #     a, b = b, a+b
+#         # for i in range(n):
+#         #     a, b = b, a+b
 
-        # return a    
+#         # return a    
 
 
-        if n <= 2:
-            return n
+#         if n <= 2:
+#             return n
 
-        a = 1
-        b = 2
+#         a = 1
+#         b = 2
 
-        for i in range(3, n + 1):
+#         for i in range(3, n + 1):
 
-            c = a + b
-            a = b
-            b = c
+#             c = a + b
+#             a = b
+#             b = c
         
-        return b         
+#         return b         
+
+#  Climbing Stairs II
+class Solution:
+    def climbStairs(self, n: int, costs: List[int]) -> int:
+
+        dp = [0] * (n + 1)
+
+        for i in range(1, n + 1):
+
+            dp[i] = float('inf')
+
+            for j in range(max(0, i - 3), i):
+
+                dp[i] = min(
+                    dp[i],
+                    dp[j] + costs[i - 1] + (i - j) ** 2
+                )
+
+        return dp[n]
+ 
  
