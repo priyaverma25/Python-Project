@@ -1660,22 +1660,47 @@ class Solution:
 #         return b         
 
 #  Climbing Stairs II
+# class Solution:
+#     def climbStairs(self, n: int, costs: List[int]) -> int:
+
+#         dp = [0] * (n + 1)
+
+#         for i in range(1, n + 1):
+
+#             dp[i] = float('inf')
+
+#             for j in range(max(0, i - 3), i):
+
+#                 dp[i] = min(
+#                     dp[i],
+#                     dp[j] + costs[i - 1] + (i - j) ** 2
+#                 )
+
+#         return dp[n]
+
+
+# Largest Triangle Area 
 class Solution:
-    def climbStairs(self, n: int, costs: List[int]) -> int:
+    def largestTriangleArea(self, points: List[List[int]]) -> float:
 
-        dp = [0] * (n + 1)
+        ans = 0
 
-        for i in range(1, n + 1):
+        n = len(points)
 
-            dp[i] = float('inf')
+        for i in range(n):
+            for j in range(i + 1, n):
+                for k in range(j + 1, n):
 
-            for j in range(max(0, i - 3), i):
+                    x1, y1 = points[i]
+                    x2, y2 = points[j]
+                    x3, y3 = points[k]
 
-                dp[i] = min(
-                    dp[i],
-                    dp[j] + costs[i - 1] + (i - j) ** 2
-                )
+                    area = abs(
+                        x1 * (y2 - y3) +
+                        x2 * (y3 - y1) +
+                        x3 * (y1 - y2)
+                    ) / 2
 
-        return dp[n]
- 
- 
+                    ans = max(ans, area)
+
+        return ans 
