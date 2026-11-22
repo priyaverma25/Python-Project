@@ -1680,27 +1680,53 @@ class Solution:
 
 
 # Largest Triangle Area 
+# class Solution:
+#     def largestTriangleArea(self, points: List[List[int]]) -> float:
+
+#         ans = 0
+
+#         n = len(points)
+
+#         for i in range(n):
+#             for j in range(i + 1, n):
+#                 for k in range(j + 1, n):
+
+#                     x1, y1 = points[i]
+#                     x2, y2 = points[j]
+#                     x3, y3 = points[k]
+
+#                     area = abs(
+#                         x1 * (y2 - y3) +
+#                         x2 * (y3 - y1) +
+#                         x3 * (y1 - y2)
+#                     ) / 2
+
+#                     ans = max(ans, area)
+
+#         return ans
+
+
+# Max points on a line 
+import collections
+
 class Solution:
-    def largestTriangleArea(self, points: List[List[int]]) -> float:
+    def maxPoints(self, points: List[List[int]]) -> int:
 
-        ans = 0
+        res = 1
 
-        n = len(points)
+        for i in range(len(points)):
+            p1 = points[i]
+            count = collections.defaultdict(int)
 
-        for i in range(n):
-            for j in range(i + 1, n):
-                for k in range(j + 1, n):
+            for j in range(i + 1, len(points)):
+                p2 = points[j]
 
-                    x1, y1 = points[i]
-                    x2, y2 = points[j]
-                    x3, y3 = points[k]
+                if p2[0] == p1[0]:
+                    slope = float("inf")
+                else:
+                    slope = (p2[1] - p1[1]) / (p2[0] - p1[0])
 
-                    area = abs(
-                        x1 * (y2 - y3) +
-                        x2 * (y3 - y1) +
-                        x3 * (y1 - y2)
-                    ) / 2
+                count[slope] += 1
+                res = max(res, count[slope] + 1)
 
-                    ans = max(ans, area)
-
-        return ans 
+        return res
