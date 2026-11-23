@@ -1707,26 +1707,59 @@ class Solution:
 
 
 # Max points on a line 
-import collections
+# import collections
 
+# class Solution:
+#     def maxPoints(self, points: List[List[int]]) -> int:
+
+#         res = 1
+
+#         for i in range(len(points)):
+#             p1 = points[i]
+#             count = collections.defaultdict(int)
+
+#             for j in range(i + 1, len(points)):
+#                 p2 = points[j]
+
+#                 if p2[0] == p1[0]:
+#                     slope = float("inf")
+#                 else:
+#                     slope = (p2[1] - p1[1]) / (p2[0] - p1[0])
+
+#                 count[slope] += 1
+#                 res = max(res, count[slope] + 1)
+
+#         return res
+
+
+
+
+#  Rectangle Area
 class Solution:
-    def maxPoints(self, points: List[List[int]]) -> int:
+    def computeArea(self, ax1: int, ay1: int, ax2: int, ay2: int,
+                    bx1: int, by1: int, bx2: int, by2: int) -> int:
 
-        res = 1
+        # Area of both rectangles
+        area1 = (ax2 - ax1) * (ay2 - ay1)
+        area2 = (bx2 - bx1) * (by2 - by1)
 
-        for i in range(len(points)):
-            p1 = points[i]
-            count = collections.defaultdict(int)
+        # Find overlapping coordinates
+        cx1 = max(ax1, bx1)
+        cy1 = max(ay1, by1)
 
-            for j in range(i + 1, len(points)):
-                p2 = points[j]
+        cx2 = min(ax2, bx2)
+        cy2 = min(ay2, by2)
 
-                if p2[0] == p1[0]:
-                    slope = float("inf")
-                else:
-                    slope = (p2[1] - p1[1]) / (p2[0] - p1[0])
+        # Find overlapping width and height
+        cl = cx2 - cx1
+        ch = cy2 - cy1
 
-                count[slope] += 1
-                res = max(res, count[slope] + 1)
+        # Calculate overlapping area
+        cArea = 0
 
-        return res
+        if cl > 0 and ch > 0:
+            cArea = cl * ch
+
+        # Total area
+        return area1 + area2 - cArea
+
