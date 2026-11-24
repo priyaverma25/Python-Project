@@ -1735,31 +1735,51 @@ class Solution:
 
 
 #  Rectangle Area
+# class Solution:
+#     def computeArea(self, ax1: int, ay1: int, ax2: int, ay2: int,
+#                     bx1: int, by1: int, bx2: int, by2: int) -> int:
+
+#         # Area of both rectangles
+#         area1 = (ax2 - ax1) * (ay2 - ay1)
+#         area2 = (bx2 - bx1) * (by2 - by1)
+
+#         # Find overlapping coordinates
+#         cx1 = max(ax1, bx1)
+#         cy1 = max(ay1, by1)
+
+#         # cx2 = min(ax2, bx2)
+#         # cy2 = min(ay2, by2)
+
+        # # Find overlapping width and height
+        # cl = cx2 - cx1
+        # ch = cy2 - cy1
+
+        # # Calculate overlapping area
+        # cArea = 0
+
+        # if cl > 0 and ch > 0:
+        #     cArea = cl * ch
+
+        # # Total area
+        # return area1 + area2 - cArea
+        
+        
+#  Number of 1 Bits
 class Solution:
-    def computeArea(self, ax1: int, ay1: int, ax2: int, ay2: int,
-                    bx1: int, by1: int, bx2: int, by2: int) -> int:
+    def hammingWeight(self, n: int) -> int:
+        count = 0
 
-        # Area of both rectangles
-        area1 = (ax2 - ax1) * (ay2 - ay1)
-        area2 = (bx2 - bx1) * (by2 - by1)
+        while n:
+            count += n & 1
+            n = n >> 1
 
-        # Find overlapping coordinates
-        cx1 = max(ax1, bx1)
-        cy1 = max(ay1, by1)
+        return count
 
-        cx2 = min(ax2, bx2)
-        cy2 = min(ay2, by2)
-
-        # Find overlapping width and height
-        cl = cx2 - cx1
-        ch = cy2 - cy1
-
-        # Calculate overlapping area
-        cArea = 0
-
-        if cl > 0 and ch > 0:
-            cArea = cl * ch
-
-        # Total area
-        return area1 + area2 - cArea
-
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        count = 0
+        for _ in range(32):
+            if n & 1 == 1:
+                count += 1
+            n = n >> 1
+        return count
