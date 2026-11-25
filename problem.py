@@ -1798,3 +1798,13 @@ class Solution:
         for key, value in h.items():
             if value == 1:
                 return key
+        # 
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        ans = 0
+
+        for num in nums:
+            ans = ans ^ num
+
+        return ans
+        
