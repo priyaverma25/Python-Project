@@ -1765,21 +1765,36 @@ class Solution:
         
         
 #  Number of 1 Bits
+# class Solution:
+#     def hammingWeight(self, n: int) -> int:
+#         count = 0
+
+#         while n:
+#             count += n & 1
+#             n = n >> 1
+
+#         return count
+
+# class Solution:
+#     def hammingWeight(self, n: int) -> int:
+#         count = 0
+#         for _ in range(32):
+#             if n & 1 == 1:
+#                 count += 1
+#             n = n >> 1
+#         return count
+
+# Single Number
 class Solution:
-    def hammingWeight(self, n: int) -> int:
-        count = 0
+    def singleNumber(self, nums: list[int]) -> int:
+        h = {}
 
-        while n:
-            count += n & 1
-            n = n >> 1
-
-        return count
-
-class Solution:
-    def hammingWeight(self, n: int) -> int:
-        count = 0
-        for _ in range(32):
-            if n & 1 == 1:
-                count += 1
-            n = n >> 1
-        return count
+        for i in nums:
+            if i in h:
+                h[i] += 1
+            else:
+                h[i] = 1
+        
+        for key, value in h.items():
+            if value == 1:
+                return key
