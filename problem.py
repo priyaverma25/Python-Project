@@ -1785,26 +1785,40 @@ class Solution:
 #         return count
 
 # Single Number
-class Solution:
-    def singleNumber(self, nums: list[int]) -> int:
-        h = {}
+# class Solution:
+#     def singleNumber(self, nums: list[int]) -> int:
+#         h = {}
 
-        for i in nums:
-            if i in h:
-                h[i] += 1
+#         for i in nums:
+#             if i in h:
+#                 h[i] += 1
+#             else:
+#                 h[i] = 1
+        
+#         for key, value in h.items():
+#             if value == 1:
+#                 return key
+#         # 
+# class Solution:
+#     def singleNumber(self, nums: List[int]) -> int:
+#         ans = 0
+
+#         for num in nums:
+#             ans = ans ^ num
+
+#         return ans
+        
+# Number of Steps to Reduce a Number to Zero 
+class Solution:
+    def numberOfSteps(self, num: int) -> int:
+        count = 0
+
+        while num > 0:
+            if num % 2 == 0:
+                num = num // 2
             else:
-                h[i] = 1
-        
-        for key, value in h.items():
-            if value == 1:
-                return key
-        # 
-class Solution:
-    def singleNumber(self, nums: List[int]) -> int:
-        ans = 0
+                num = num - 1
 
-        for num in nums:
-            ans = ans ^ num
+            count += 1
 
-        return ans
-        
+        return count       
