@@ -1809,16 +1809,34 @@ class Solution:
 #         return ans
         
 # Number of Steps to Reduce a Number to Zero 
+# class Solution:
+#     def numberOfSteps(self, num: int) -> int:
+#         count = 0
+
+#         while num > 0:
+#             if num % 2 == 0:
+#                 num = num // 2
+#             else:
+#                 num = num - 1
+
+#             count += 1
+
+#         return count       
+
+
+
+
+# Q3. Sum of Two Integers
 class Solution:
-    def numberOfSteps(self, num: int) -> int:
-        count = 0
+    def getSum(self, a: int, b: int) -> int:
+        mask = 0xffffffff
 
-        while num > 0:
-            if num % 2 == 0:
-                num = num // 2
-            else:
-                num = num - 1
+        while b != 0:
+            carry = (a & b) << 1
+            a = (a ^ b) & mask
+            b = carry & mask
 
-            count += 1
-
-        return count       
+        if a <= 0x7fffffff:
+            return a
+        else:
+            return ~(a ^ mask)
