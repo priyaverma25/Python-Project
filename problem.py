@@ -1827,16 +1827,29 @@ class Solution:
 
 
 # Q3. Sum of Two Integers
+# class Solution:
+#     def getSum(self, a: int, b: int) -> int:
+#         mask = 0xffffffff
+
+#         while b != 0:
+#             carry = (a & b) << 1
+#             a = (a ^ b) & mask
+#             b = carry & mask
+
+#         if a <= 0x7fffffff:
+#             return a
+#         else:
+#             return ~(a ^ mask)
+
+
+# Gray Code
 class Solution:
-    def getSum(self, a: int, b: int) -> int:
-        mask = 0xffffffff
+    def grayCode(self, n: int) -> List[int]:
+        result = []
 
-        while b != 0:
-            carry = (a & b) << 1
-            a = (a ^ b) & mask
-            b = carry & mask
+        for i in range(2 ** n):
+            gray = i ^ (i >> 1)
+            result.append(gray)
 
-        if a <= 0x7fffffff:
-            return a
-        else:
-            return ~(a ^ mask)
+        return result
+        
